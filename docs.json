@@ -7,6 +7,9 @@
   "light": "#F5B20B",
   "dark": "#F7C132"
 },
+"fonts": {
+  "family": "Roboto"
+},
   "favicon": "/eggz-logo.png",
   "navigation": {
     "tabs": [
