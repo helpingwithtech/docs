@@ -2,14 +2,15 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "aspen",
   "name": "eggz Help Center",
-"colors": {
-  "primary": "#F5B20B",
-  "light": "#F5B20B",
-  "dark": "#F7C132"
-},
-"fonts": {
-  "family": "Roboto"
-},
+  "colors": {
+    "primary": "#F5B20B",
+    "light": "#F5B20B",
+    "dark": "#F7C132"
+  },
+  "fonts": {
+    "family": "Roboto"
+  },
+  "css": ".topbar-cta-button { background-color: #f7c133 !important; color: #ffffff !important; border: 2px solid #18181b !important; border-radius: 0.5rem !important; } .topbar-cta-button:hover { background-color: #f2b700 !important; }",
 "description": "eggz connects your email to Xero in two minutes or less. Automate your invoices, bills, and more.",
   "favicon": "/eggz-logo.png",
   "navigation": {
