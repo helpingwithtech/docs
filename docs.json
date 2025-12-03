@@ -102,14 +102,12 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
      "chatgpt",
      "claude",
      "perplexity",
      "mcp",
-     "cursor",
-     "vscode"
+     "copy",
+     "view"
    ]
   },
   "footer": {
