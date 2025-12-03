@@ -10,11 +10,11 @@
 "fonts": {
   "family": "Roboto"
 },
+"description": "eggz connects your email to Xero in two minutes or less. Automate your invoices, bills, and more.",
   "favicon": "/eggz-logo.png",
   "navigation": {
     "tabs": [
       {
-        "tab": "Documentation",
         "groups": [
           {
             "group": "Getting started",
