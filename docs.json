@@ -15,37 +15,30 @@
   "navigation": {
     "tabs": [
       {
+        "tab": "Documentation",
         "groups": [
           {
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "quickstart"
             ]
           },
           {
             "group": "Bills",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
+              "essentials/settings"            ]
           },
           {
             "group": "Invoices",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "essentials/markdown"
             ]
           },
           {
             "group": "Account Management",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "ai-tools/cursor"
             ]
           }
         ]
