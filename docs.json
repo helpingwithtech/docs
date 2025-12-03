@@ -3,9 +3,9 @@
   "theme": "aspen",
   "name": "eggz Help Center",
 "colors": {
-  "primary": "#4F46E5",
-  "light": "#4F46E5",
-  "dark": "#4F46E5"
+  "primary": "#F7C132",
+  "light": "#F7C132",
+  "dark": "#F7C132"
 },
   "favicon": "/eggz-logo.png",
   "navigation": {
