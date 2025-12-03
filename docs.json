@@ -1,12 +1,12 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
-  },
+  "theme": "eggz",
+  "name": "eggz Help Center",
+"colors": {
+  "primary": "#4F46E5",
+  "light": "#4F46E5",
+  "dark": "#4F46E5"
+},
   "favicon": "/eggz-logo.png",
   "navigation": {
     "tabs": [
@@ -22,14 +22,14 @@
             ]
           },
           {
-            "group": "Customization",
+            "group": "Bills",
             "pages": [
               "essentials/settings",
               "essentials/navigation"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Invoices",
             "pages": [
               "essentials/markdown",
               "essentials/code",
@@ -38,7 +38,7 @@
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Account Management",
             "pages": [
               "ai-tools/cursor",
               "ai-tools/claude-code",
