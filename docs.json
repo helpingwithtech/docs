@@ -62,7 +62,7 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@eggz.ai"
+        "href": "mailto:support@eggz.ai?subject=I%20need%20an%20Egghead&body=Hi%20Team%2C%0A%0AI%27d%20like%20to%20fast-track%20my%20setup%20with%20an%20expert.%0A%0AMy%20Company%20Name%3A%20%0AMy%20Current%20Accounting%20Software%20(e.g.%20Xero)%3A%20%0ABest%20phone%20number%3A%20%0A%0AThanks%21"
       }
     ],
     "primary": {
