@@ -6,31 +6,63 @@ export const Button = ({
   href,
   ...props 
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-medium transition-colors";
+  const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-200";
   
-  const intentStyles = {
-    primary: "bg-[#f7c133] hover:bg-[#f2b700] text-white border-2 border-zinc-900",
-    secondary: "bg-[#1B1C1E] hover:bg-[#f2b700] text-white border-2 border-zinc-900",
-    outline: "bg-white hover:bg-zinc-200 border border-zinc-900 text-zinc-900",
+  const intentClasses = {
+    primary: "text-zinc-900 border-2 border-zinc-900",
+    secondary: "text-white border-2 border-zinc-900",
+    outline: "text-zinc-900 border border-zinc-900",
+  };
+  
+  const intentInlineStyles = {
+    primary: { backgroundColor: "#f7c133" },
+    secondary: { backgroundColor: "#1B1C1E" },
+    outline: { backgroundColor: "#ffffff" },
   };
   
   const sizeStyles = {
-    small: "px-3 py-1.5 rounded-md text-sm",
-    medium: "p-3 rounded-lg text-base",
+    small: "px-4 py-2 rounded-md text-sm",
+    medium: "px-5 py-3 rounded-lg text-base",
   };
   
-  const combinedClasses = `${baseStyles} ${intentStyles[intent] || intentStyles.primary} ${sizeStyles[size] || sizeStyles.medium} ${className}`;
+  const combinedClasses = `${baseStyles} ${intentClasses[intent] || intentClasses.primary} ${sizeStyles[size] || sizeStyles.medium} ${className}`;
+  const inlineStyle = intentInlineStyles[intent] || intentInlineStyles.primary;
   
   if (href) {
     return (
-      <a href={href} className={combinedClasses} {...props}>
+      <a 
+        href={href} 
+        className={combinedClasses} 
+        style={inlineStyle}
+        onMouseEnter={(e) => {
+          if (intent === "primary") e.currentTarget.style.backgroundColor = "#f2b700";
+          if (intent === "secondary") e.currentTarget.style.backgroundColor = "#f2b700";
+          if (intent === "outline") e.currentTarget.style.backgroundColor = "#e4e4e7";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = inlineStyle.backgroundColor;
+        }}
+        {...props}
+      >
         {children}
       </a>
     );
   }
   
   return (
-    <button className={combinedClasses} {...props}>
+    <button 
+      className={combinedClasses} 
+      style={inlineStyle}
+      onMouseEnter={(e) => {
+        if (intent === "primary") e.currentTarget.style.backgroundColor = "#f2b700";
+        if (intent === "secondary") e.currentTarget.style.backgroundColor = "#f2b700";
+        if (intent === "outline") e.currentTarget.style.backgroundColor = "#e4e4e7";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = inlineStyle.backgroundColor;
+      }}
+      {...props}
+    >
       {children}
     </button>
   );
