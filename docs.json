@@ -10,6 +10,10 @@
   "fonts": {
     "family": "Roboto"
   },
+  "banner": {
+    "content": "🎉 **Announcement** 🎉 50% off annual plans for life! First 100 founders only. [Get started →](https://app.eggz.ai/#pricing)",
+    "dismissible": true
+  },
   "description": "eggz connects your email to Xero in two minutes or less. Automate your invoices, bills, and more.",
   "favicon": "/eggz-logo.png",
   "navigation": {
