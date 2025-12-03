@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "willow",
+  "theme": "aspen",
   "name": "eggz Help Center",
 "colors": {
   "primary": "#4F46E5",
