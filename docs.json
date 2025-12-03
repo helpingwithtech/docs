@@ -3,8 +3,8 @@
   "theme": "aspen",
   "name": "eggz Help Center",
 "colors": {
-  "primary": "#F7C132",
-  "light": "#F7C132",
+  "primary": "#F5B20B",
+  "light": "#F5B20B",
   "dark": "#F7C132"
 },
   "favicon": "/eggz-logo.png",
