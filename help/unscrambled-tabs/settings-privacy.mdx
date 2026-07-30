@@ -1,64 +1,83 @@
 ---
 title: "Settings & privacy"
-description: "Protected domains, themes, auto-save, and how Unscrambled Tabs handles your data"
+description: "Every Unscrambled Tabs setting explained — protected domains, Open Tabs options, smart features, snapshots — plus how your data is handled, plainly"
 icon: "shield-halved"
+keywords: ['settings', 'privacy', 'protected domains', 'auto-save', 'theme', 'wipe data']
 ---
 
-## Where data lives
+## Where Settings lives
 
-| Storage | Typical contents |
-|---------|------------------|
-| **chrome.storage.local** | Workspaces, settings, snapshots, long-lived preferences |
-| **chrome.storage.session** | Short-lived UI state, per-window workspace map, and the rolling list of recently-visited domains for the bill-capture nudge (all cleared when Chrome closes) |
-| **Service worker memory** | Tab activity timestamps for discard heuristics (cleared when the worker stops) |
+All settings are in the **side panel**: click the **Settings** gear in the panel header. (The dashboard doesn't have its own settings screen — just theme toggles.) Here's every section, top to bottom.
 
-## Protected domains
+## Protected Domains
 
-In **Protected Domains**, enter host fragments (for example `mail.google.com` or `docs.google.com`). Tabs whose hostname **matches** those entries are **never** discarded by **Performance mode** sweeps or **Free RAM now** (substring match — be specific to avoid over-broad rules).
+Sites that are **never suspended** — so drafts, forms, and logged-in dashboards are always safe from memory-saving. Type one domain per line (like `mail.google.com`) and click **Save**. You can list up to 100.
 
-## Themes
+Anything here is skipped by [Performance mode](/help/unscrambled-tabs/performance-and-ram) sweeps, **Free RAM now**, and the manual [Suspend buttons](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). Add your email, docs, banking, and anything with a half-written form.
 
-The extension supports **light** and **dark** themes using design tokens. Toggle between them from the **dashboard header**.
+## Default Favicon Emoji
 
-## Auto-save tabs
-
-When **Auto-save tabs** is on, tab navigations in the **active workspace** update saved tab lists through a **debounced** path in the background worker — this avoids writing storage on every single event and reduces UI flicker.
-
-## Open Tabs view
-
-The [Open Tabs view](/help/unscrambled-tabs/open-tabs) is **on by default** as a pinned section above your workspaces. In **Settings** you can change its **Placement** (pinned section or a dedicated tab), the **sort order**, and whether tabs are **grouped by window**. It reads your open tabs' titles and addresses to build the list — nothing leaves your computer.
-
-## The "capture any bills?" nudge
-
-To offer the occasional [bill-capture suggestion](/help/unscrambled-tabs/capture-bills#the-gentle-capture-any-bills-nudge), the extension keeps a short, rolling list of **website names you've visited recently** (just the domain, like `supplier.com`). This list lives **only in memory for the current browser session** — it's wiped when you close Chrome and is **never sent anywhere**. It's used purely to decide whether to show the chip.
+When a site's own icon can't be loaded, this emoji stands in for it in your lists. Click the emoji to pick a different one (the default is 🌐).
 
 ## eggz account
 
-**Settings → eggz account** shows whether the extension is connected to your [eggz account](/help/unscrambled-tabs/eggz-account), with **Sign in** / **Sign out**. One login is shared with the web app.
+Shows whether you're connected to your eggz account, with **Sign in** / **Sign out**. One login is shared with the web app — the full story is on [Connect your eggz account](/help/unscrambled-tabs/eggz-account).
 
-Privacy notes for the connected mode:
+## Import & Export
 
-- The extension **never stores tokens or passwords** — your session is a secure, httpOnly browser cookie on `app.eggz.ai`, the same one the web app uses.
-- While you use the **AI chat** (your organisation's eggz CRM assistant), it's sent **names and addresses only** by default — your open tabs' titles and URLs, your saved workspace/folder/link names, and the current page's title and URL. The **actual contents** of a page are sent **only after you approve** the permission card (see below). Other browsing is not sent anywhere.
-- Documents you upload go to **your eggz organization** and follow the web app's data handling.
+**Export encrypted backup** and the **Import** dropzone — covered in depth on [Backup & import](/help/unscrambled-tabs/backup-import).
 
-Those are the only things that send content to eggz — the **AI/CRM chat** and **document uploads**. Nothing else leaves your browser.
+## Auto-save tabs
 
-## Asking permission before reading a page
+On by default. As you browse, the workspace your window is using quietly keeps up — tabs you open and close, plus changes to tab groups and which tab you're on, are saved in the background so switching away never loses anything. Turn it off and workspaces only change when you act on them directly.
 
-When the AI wants to read **what's on a page** (or look at one of your records), it shows a permission card first — **Approve** or **Deny** — and it asks **every time**. Until you approve, **no page or record content leaves your browser**; the AI only ever has names and addresses.
+## Open Tabs view
 
-## AI and network
+Three controls that shape the [Open Tabs view](/help/unscrambled-tabs/open-tabs) everywhere:
 
-There's **one AI chat** — no modes to flip between, no key to manage (see [AI assistant & search](/help/unscrambled-tabs/ai-and-search)):
+| Setting | Options | Default |
+|---------|---------|---------|
+| **Placement** | **Pinned section** — always visible above workspaces · **Dedicated tab** — its own "Open Tabs" view in the side panel | Pinned section |
+| **Sort tabs by** | **Window order (tab strip)** · **Most recently active** · **Site name (A–Z)** | Window order |
+| **Group by window** | On — a divider per Chrome window · Off — one flat list | On |
 
-- **No eggz server** is required for core workspace features — they all work offline-ish, on your computer.
-- **The AI runs through eggz.** When you use the chat, it talks to **eggz** (your organisation's assistant) — included with your plan, no API key needed.
-- To answer questions about your tabs, the chat sends your open tabs' **titles and web addresses** (names only) — and the **contents** of a page only after you approve the permission card. This only happens when you actually use the AI.
-- AI features follow the eggz web app's data handling.
+## Smart Features
 
-## Permissions
+- **Tab deduplication** (on by default) — when you open a page you already have open, a small ["Already open" bar](/help/unscrambled-tabs/manage-tabs#already-open-the-duplicate-catcher) offers to switch you to the existing tab.
+- **Session Time-Travel** (on by default) — the automatic five-minute snapshots. See [Session Time-Travel](/help/unscrambled-tabs/session-time-travel).
+- **Performance & RAM** — the automatic memory-saving controls:
+  - **Performance mode** — **Manual** (no automatic suspending), **Balanced** (suspend eligible inactive tabs after your chosen interval), or **Aggressive** (same, with the idle threshold capped at five minutes). Default: Manual.
+  - **Discard after** — the Balanced/Aggressive idle interval: 5, 10, 15, 30, or 60 minutes (default 15).
+  - **Free RAM now** — a one-click sweep that suspends eligible inactive tabs immediately.
 
-The manifest lists permissions needed for tabs, groups, storage, side panel, and related Chrome APIs. Granting fewer permissions than requested is not supported — if you reject a prompt, some features will not work.
+  All of it skips active, pinned, and audible tabs, internal pages, and your Protected Domains — the full picture is on [Performance & RAM](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained).
 
-For **Chrome Web Store** updates and permission changes, see Google’s [update checklist](https://developer.chrome.com/docs/webstore/update).
+## Session Snapshots
+
+The list of your automatic snapshots — newest first, with a **Restore** button on each. Restoring creates a new workspace and touches nothing else; see [Session Time-Travel](/help/unscrambled-tabs/session-time-travel#restore-a-snapshot).
+
+## About
+
+The extension name and version — handy when you're talking to support.
+
+## Danger Zone
+
+**Wipe all data** permanently deletes all workspaces, folders, resources, and settings from this browser, and disconnects your eggz account here. It asks you to confirm (**Confirm wipe**) — and it means it. If there's any chance you'll want your setup back, [export an encrypted backup](/help/unscrambled-tabs/backup-import) first.
+
+## Light and dark
+
+The theme toggle lives in the side panel and dashboard **headers** (sun/moon), not in Settings. Both themes are designed for comfortable contrast.
+
+---
+
+## Your privacy, plainly
+
+- **Your tabs, workspaces, snapshots, and settings live locally in your browser.** Core tab and workspace features need no account and no internet.
+- **The AI and eggz features are optional.** When you use them, only names and web addresses are shared by default — your open tabs' titles and addresses, and your workspace, folder, and saved-link names. A page's **actual content** is sent only after you approve the permission card, each time. See [It asks before it reads a page](/help/unscrambled-tabs/ai-and-search#it-asks-before-it-reads-a-page).
+- **Signing in, uploads, and bill capture use your eggz account** and follow the web app's data handling. The extension never stores passwords — your session is the same secure browser cookie the web app uses.
+- **The bill-capture nudge is local.** To offer the occasional ["capture any bills?" suggestion](/help/unscrambled-tabs/capture-bills#the-gentle-capture-any-bills-nudge), the extension keeps a short, rolling list of site names you've visited recently. It lives only in memory for the current browser session, is wiped when Chrome closes, and is never sent anywhere.
+- **Search is local.** Finding your tabs and workspaces happens on your computer.
+
+## About the permissions Chrome asks for
+
+The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots, and suspend tabs — and its right-click menu items (**Rename this tab…**, **Save for later & close tab**, **Move tab to workspace**) need permission to appear on pages. Granting only some permissions isn't supported — if you decline, some features won't work.

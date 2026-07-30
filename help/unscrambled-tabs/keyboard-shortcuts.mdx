@@ -1,0 +1,72 @@
+---
+title: "Keyboard shortcuts"
+description: "Every Unscrambled Tabs keyboard shortcut in one place — search, AI, the workspace quick switcher, and saving tabs without touching the mouse"
+icon: "keyboard"
+keywords: ['shortcuts', 'hotkeys', 'keyboard', 'quick switcher', 'command palette']
+---
+
+## The full list
+
+| What it does | Mac | Windows / Linux |
+|--------------|-----|------------------|
+| **Open search** | ⌘K | Ctrl+Shift+K |
+| **Open the AI assistant** | ⌘J | Ctrl+Shift+J |
+| **Jump to a workspace** (quick switcher) | Alt+A | Alt+A |
+| **Save or move the current tab to a workspace** | Alt+D | Alt+D |
+| **Switch to the next workspace** | — not set | — not set |
+| **Switch to the previous workspace** | — not set | — not set |
+
+All of these work from **any tab** — you don't need the side panel or dashboard open first.
+
+<Note>
+**Next workspace** and **Previous workspace** ship without keys so they can't collide with shortcuts you already use. Give them keys yourself in about ten seconds — see [Change or add shortcuts](#change-or-add-shortcuts) below. Once set, they cycle through your workspace list in order, wrapping around at the end, and each Chrome window cycles its own workspace.
+</Note>
+
+## What each one opens
+
+### Search — ⌘K / Ctrl+Shift+K
+
+Opens search over your workspaces, open tabs, saved tabs, and saved links. Normally it opens the **side panel** on its Search view. If the **dashboard** is your current tab, it opens the dashboard's own search palette instead — same search, bigger screen. (On the dashboard you can also just press **/**.) See [AI assistant & search](/help/unscrambled-tabs/ai-and-search#search-anything-k).
+
+### AI assistant — ⌘J / Ctrl+Shift+J
+
+Opens the side panel straight onto the AI chat. See [AI assistant & search](/help/unscrambled-tabs/ai-and-search).
+
+### Jump to a workspace — Alt+A {#jump-to-a-workspace-alta}
+
+Opens the **quick switcher**: a list of your workspaces, most recently used first, with your current workspace at the top. Type to filter (workspace or folder names), use ↑/↓ to move, **Enter** to switch, **Esc** to close.
+
+The clever bit: the highlight starts on your **previous** workspace, not your current one. So **Alt+A then Enter** flips you straight back to the workspace you were in before — tap it again to flip back. It's the fastest way to bounce between two clients all day.
+
+### Save the current tab to a workspace — Alt+D
+
+Opens a small **Save to workspace** picker: your workspaces grouped by folder, with a search field ready for typing. Choose one and the tab you're on is **saved into it** — the tab itself stays open, and a green check marks workspaces that already have this page. To move a tab (save it there *and* close it here), use drag-and-drop or the right-click menu instead — see [Move a tab to another workspace](/help/unscrambled-tabs/manage-tabs#move-a-tab-to-another-workspace).
+
+## Dashboard-only keys
+
+These work while the dashboard page itself is focused:
+
+| What it does | Keys |
+|--------------|------|
+| Open the search palette | **/** (or ⌘K / Ctrl+K) |
+| Pin the sidebar open / closed | `⌘\` / `Ctrl+\` |
+
+## Change or add shortcuts
+
+Chrome owns extension shortcuts, so they're changed in Chrome's own settings:
+
+<Steps>
+  <Step title="Open Chrome's shortcut settings">
+    Type `chrome://extensions/shortcuts` into the address bar and press Enter.
+  </Step>
+  <Step title="Find Unscrambled Tabs">
+    Scroll to the **Unscrambled Tabs** section — every command is listed, including the two that ship without keys.
+  </Step>
+  <Step title="Set your keys">
+    Click the pencil next to a command and press the combination you want. This is where you give **Switch to the next workspace** and **Switch to the previous workspace** their keys.
+  </Step>
+</Steps>
+
+<Tip>
+If a shortcut doesn't seem to do anything, another extension or app may already own that key combination — pick a different one on the same settings page.
+</Tip>

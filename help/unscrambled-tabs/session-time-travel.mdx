@@ -1,32 +1,49 @@
 ---
 title: "Session Time-Travel"
-description: "Automatic snapshots of your browser session in Unscrambled Tabs and how to restore from a recent snapshot"
+description: "Automatic snapshots of your tabs every five minutes, restoring any point as a fresh workspace, and what happens when Chrome restarts"
 icon: "clock-rotate-left"
+keywords: ['snapshots', 'session', 'restore', 'crash recovery', 'startup']
 ---
 
-## What it does
+## Your session, quietly photographed
 
-**Session Time-Travel** takes **automatic snapshots** of your current browsing context (for the focused normal window’s tab set, as implemented in your version) on a **schedule** — for example every few minutes while enabled.
+**Session Time-Travel** takes an automatic snapshot of your current window's tabs **every 5 minutes** — what's open, the tab order, your Chrome tab groups, and which tab you were on. It keeps the most recent **50** snapshots, so you can rewind roughly the **last four hours** of browsing.
 
-Snapshots let you **rewind** to a recent tab layout if something changed accidentally or you want an older arrangement back.
+Closed the wrong ten tabs? Browser went down mid-research? A five-minute-old copy of your session is waiting.
 
-## Enabling and limits
-
-- Toggle **Session Time-Travel** in **Settings** under smart features.
-- The product keeps a **limited ring buffer** of snapshots (for example the most recent 50) so storage stays bounded.
+It's on by default. The toggle lives in **Settings → Smart Features → Session Time-Travel**.
 
 <Note>
-Snapshot frequency and retention are implementation details — check your in-product Settings copy for the exact interval.
+Snapshots capture the window you were last working in — if you run several windows, it's the one in focus that gets photographed.
 </Note>
 
-## Restoring
+## Restore a snapshot
 
-From **Settings**, choose a snapshot and **Restore**. The extension applies the saved workspace and tab metadata. If something fails, try an older snapshot.
+<Steps>
+  <Step title="Open Settings → Session Snapshots">
+    Open the side panel, click the **Settings** gear, and scroll to **Session Snapshots**. The most recent snapshots are listed with how long ago they were taken and how many tabs each holds.
+  </Step>
+  <Step title="Click Restore">
+    Pick the moment you want back and click **Restore**.
+  </Step>
+  <Step title="A new workspace appears">
+    The snapshot is restored **as a brand-new workspace** — named after its time, like **Snapshot — Jul 30, 2:15 PM** — and the panel takes you to it. Your current tabs are **not** touched: nothing closes, nothing reloads. Switch to the snapshot workspace when you're ready, or just pluck the tabs you needed and delete it after.
+  </Step>
+</Steps>
 
 <Tip>
-Snapshots are **local** to your Chrome profile and extension storage. They are **not** cloud-synced to eggz unless a future integration explicitly adds that.
+Because a restore is just a workspace, everything on [Workspaces & tabs](/help/unscrambled-tabs/workspaces) applies — rename it, keep it, or delete it once it's served its purpose.
 </Tip>
 
-## Privacy
+## When Chrome restarts
 
-Snapshots contain **URLs and titles** (and any tab metadata the extension stores). Treat exported backups separately if you need to move machines — see [Backup & import](/help/unscrambled-tabs/backup-import).
+You don't need to do anything after a restart — Unscrambled Tabs picks your session back up on its own:
+
+- If Chrome's own "continue where you left off" already brought your tabs back, the extension simply reconnects them to your active workspace — including your [custom tab names](/help/unscrambled-tabs/manage-tabs#rename-any-tab).
+- If your tabs *didn't* come back, the extension **re-opens your active workspace** for you: tabs, pinned state, tab groups (names, colours, collapsed state), custom names, and the tab you were focused on.
+
+Either way, you start the day where you ended the last one.
+
+## Privacy & storage
+
+Snapshots contain tab **titles and web addresses** and live in your browser's extension storage on your computer. They're included when you [export an encrypted backup](/help/unscrambled-tabs/backup-import), so a backup can carry your recent history to a new machine too.

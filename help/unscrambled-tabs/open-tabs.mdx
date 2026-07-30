@@ -1,14 +1,15 @@
 ---
 title: "Open Tabs view"
-description: "See every tab in every Chrome window in one tidy list — and save the keepers into a workspace with one click"
+description: "See every tab in every Chrome window in one tidy list — jump, rename, suspend, save, and close duplicates from one place"
 icon: "table-columns"
+keywords: ['open tabs', 'all tabs', 'save window', 'suspend others', 'close duplicates']
 ---
 
 ## All your tabs, all in one place
 
 Ever lose a tab in a sea of windows? The **Open Tabs** view rounds up **every open tab across every Chrome window** and lays them out in one clean list. No more squinting at tiny tab icons or alt-tabbing forever like it's a workout.
 
-Even tabs that Chrome has put to sleep to save memory show up here — they're listed by their **title and web address**, wide awake on the page even while they nap in the background.
+Even tabs that have been put to sleep to save memory show up here — they're listed by their **title and web address** (with a little *suspended* note), wide awake on the page even while they nap in the background.
 
 <Note>
 Open Tabs is a live list. As you open, close, and jump between tabs, the view keeps up — no refresh button needed.
@@ -16,30 +17,42 @@ Open Tabs is a live list. As you open, close, and jump between tabs, the view ke
 
 ## Where it lives
 
-Open Tabs is on from the start — it appears as a **pinned section** above your workspaces in the side panel. Prefer it out of the way? You can move it into its own tab instead:
+Open Tabs is in **both** surfaces:
 
-<Steps>
-  <Step title="Open Settings">
-    Head to the side panel and open **Settings**.
-  </Step>
-  <Step title="Choose its placement">
-    Under **Placement**, pick **Pinned section** (always visible above workspaces — the default) or **Dedicated tab**. Choosing **Dedicated tab** adds an **Open Tabs** tab to the panel.
-  </Step>
-  <Step title="Make it yours">
-    Choose how the list looks — the **sort order** and whether tabs are **grouped by window**. Pick what feels comfy.
-  </Step>
-</Steps>
+- **Side panel** — on from the start as a **pinned section** above your workspaces. Prefer it out of the way? In **Settings → Open Tabs view → Placement**, switch to **Dedicated tab** and it becomes its own **Open Tabs** tab in the panel instead.
+- **Dashboard** — click **Open Tabs** at the top of the sidebar (it shows a live count of how many tabs you've got). The whole main area becomes the list, with room to breathe.
 
-## Save the good ones
+## Make the list read your way
 
-The whole point is to rescue the tabs worth keeping. From the Open Tabs view you can:
+Two settings shape the list on both surfaces (**Settings → Open Tabs view**):
 
-- **Save a tab into a workspace** — pop it into a new or existing [workspace](/help/unscrambled-tabs/workspaces) so it's safe to close.
-- **Jump to a tab** — click and you're whisked straight to it, even if it's in another window.
+- **Group by window** (on by default) — the list gets a divider per Chrome window: **This window**, **Window 2**, and so on, with the current window also showing which workspace it's using. Turn it off for one flat **All open tabs** list.
+- **Sort tabs by** — **Window order (tab strip)** to mirror the order of your real tabs, **Most recently active** to float what you touched last, or **Site name (A–Z)** to group by site.
 
-<Tip>
-Think of it as a "keep or toss" pile for your browser. Save the tabs you'll want later, then close the rest with a clear conscience and a lighter computer.
-</Tip>
+## What you can do with a tab
+
+Click any row and you're whisked straight to that tab, even if it's in another window. Hover a row and a set of quick actions appears:
+
+| Action | What it does |
+|--------|--------------|
+| **Rename tab** | Type your own name right in the row — Enter saves, Esc cancels. See [why renaming is great](/help/unscrambled-tabs/manage-tabs#rename-any-tab). |
+| **Suspend tab** | Puts that tab to sleep and frees its memory — it stays on the tab strip and reloads when you click it. (Hidden on the tab you're using and tabs already asleep.) |
+| **Save to workspace** | Saves the tab into a workspace so it's safe to close. |
+| **Save as resource** | Files the tab into a workspace's saved links instead. |
+| **Close tab** | Closes it, right from the list. |
+
+Little markers help you triage: a **green dot** means that tab is front-and-centre in its window, and a **green check** means it's already saved in the workspace you're viewing. On the dashboard you can also **drag a row onto any workspace** in the sidebar to [move the tab there](/help/unscrambled-tabs/manage-tabs#move-a-tab-to-another-workspace).
+
+## Whole-window moves
+
+When grouping by window is on, each window's divider carries two bigger levers:
+
+- **Save all** — saves **every tab in that window** into a brand-new workspace. A small dialog suggests a name; click **Create & save** and the whole window is captured in one go. Perfect for "this window *is* the project".
+- **Suspend others** — puts every eligible background tab in that window to sleep at once, leaving your current tab awake. Instant quiet for a noisy window.
+
+## Close duplicates in one click
+
+Opened the same page three times across two windows? When the list spots duplicates, a **Close duplicates** button appears with the count — in the **dashboard panel header**, and at the top of the side panel's pinned **Open Tabs** section. One click closes the extras across every window, always keeping the copy you're using (and never touching pinned tabs, or tabs you've renamed apart on purpose). The full rules are on [Rename, move & tidy tabs](/help/unscrambled-tabs/manage-tabs#close-duplicate-tabs-in-one-click).
 
 ## Your AI knows about these tabs too
 
