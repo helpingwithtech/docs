@@ -1,0 +1,91 @@
+---
+title: "Rename, move & tidy tabs"
+description: "Give any tab your own name, move tabs between workspaces in one motion, save pages for later, close duplicates, and put hungry tabs to sleep"
+icon: "wand-magic-sparkles"
+keywords: ['rename tab', 'move tab', 'save for later', 'duplicate tabs', 'suspend tab', 'right-click menu']
+---
+
+## Your tabs, on your terms
+
+Tabs pile up. Two of them end up on the *same page* for *different clients*. One of them is hogging memory. Three of them are the same page opened three times. This page covers the tools that fix all of that — most of them one click (or one right-click) away.
+
+## The right-click menu, everywhere
+
+Right-click on any normal web page and you'll find an **Unscrambled Tabs** menu with three fast actions — no panel required:
+
+| Menu item | What it does |
+|-----------|--------------|
+| **Rename this tab…** | Opens a small bar at the top of the page where you type the tab's new name |
+| **Save for later & close tab** | Files the page into your current workspace's saved links and closes the tab |
+| **Move tab to workspace** | Lists your workspaces — pick one and the tab moves there |
+
+<Tip>
+The **Move tab to workspace** list shows your **most recently used** workspaces first, so the clients you're actually juggling today are always at the top. (It lists up to 25.)
+</Tip>
+
+## Rename any tab {#rename-any-tab}
+
+Why rename a tab? Because two tabs on the **same page for different clients** look identical on the tab strip — and mixing them up is how the wrong invoice gets sent. Give each one your own name and you'll never guess again.
+
+Three ways to rename:
+
+- **Right-click the page** → **Unscrambled Tabs** → **Rename this tab…** — a small bar drops down from the top of the page. Type the name, click **Save**. Click **Reset** to go back to the page's own title.
+- **In the Open Tabs view** (dashboard or side panel) — hover a tab row and click **Rename tab**, then type right there in the row. **Enter** saves, **Esc** cancels, and clearing the name brings the page's own title back.
+- **On a saved tab** inside a workspace — same idea: use the rename action on the tab's row.
+
+Names can be up to 120 characters, and renaming works on normal web pages (not on Chrome's internal pages).
+
+What your custom name does:
+
+- **It shows on the tab strip itself** — the browser tab's label changes, so you can tell your tabs apart at a glance. If the page tries to change its title back, your name wins.
+- **It sticks.** The name is saved with the workspace, so it comes back after a workspace switch, a browser restart, even an extension update.
+- **It protects the tab from clean-ups.** Two same-address tabs you've renamed apart are treated as *different* tabs — [Close duplicates](#close-duplicate-tabs-in-one-click) won't merge them, and search finds them by the names you gave them.
+
+## Move a tab to another workspace {#move-a-tab-to-another-workspace}
+
+Opened something in the wrong workspace? Move it — two ways, both one motion:
+
+- **Drag it** — in the dashboard, drag a live tab row from the Open Tabs list onto any workspace in the sidebar. Done.
+- **Right-click the page** → **Unscrambled Tabs** → **Move tab to workspace** → pick the workspace.
+
+A move means: the tab is **saved into the destination workspace** (custom name and all) and **closed here** — so it's waiting for you next time you switch to that workspace, and it's out of your way now. If the workspace you pick is the one this window is already using, the tab is simply saved there and stays open.
+
+Want to save a copy **without** closing the tab? That's what **Alt+D** is for — it opens a **Save to workspace** picker (searchable, grouped by folder, with a green check on workspaces that already have this page). Pick a workspace and the tab is saved there and stays open. See [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
+
+## Save for later (and close the tab)
+
+That article you'll *definitely* read on the weekend doesn't need to sit on your tab strip until then. **Right-click** → **Unscrambled Tabs** → **Save for later & close tab**:
+
+- The page is filed into your current workspace's **resources** (its saved-links list — see [Workspaces](/help/unscrambled-tabs/workspaces#resources-saved-links)).
+- The tab closes. Clutter gone, page kept.
+
+When you want it back, open it from the workspace's resources — or find it with [search](/help/unscrambled-tabs/ai-and-search#search-anything-k).
+
+## Close duplicate tabs in one click {#close-duplicate-tabs-in-one-click}
+
+Somehow you've got the same page open three times. The **Close duplicates** button closes the extras across **all your windows** in one click. You'll find it in the [Open Tabs view](/help/unscrambled-tabs/open-tabs): on the dashboard it's the **Close duplicates (3)** button in the panel header (the number is how many extras it found), and in the side panel it's the matching button at the top of the pinned **Open Tabs** section. It only appears when there's actually something to close — and it's careful about which copy survives:
+
+- **The copy you're using wins.** A tab that's front-and-centre in any window is never closed.
+- **Pinned tabs are never closed.**
+- Otherwise, the **most recently used** copy is kept.
+
+And the guard-rails:
+
+- Tabs you've **renamed apart** don't count as duplicates — your names mean those tabs are different on purpose.
+- Only normal web pages are considered — Chrome's internal pages are left alone, and private (incognito) windows are never touched.
+
+## Suspend a tab (free its memory) {#suspend-a-tab}
+
+A suspended tab stays right where it is on your tab strip — title, icon and all — but its page is unloaded from memory, so your computer gets the RAM back. Click the tab and it reloads, like a normal refresh.
+
+- **Suspend one tab** — hover a tab row in the [Open Tabs view](/help/unscrambled-tabs/open-tabs) and click **Suspend tab — frees memory**. (The tab you're currently on can't be suspended — you're using it.) Suspended tabs show a small **suspended** note on their row.
+- **Suspend others** — each window's header in the Open Tabs view has a **Suspend others** button that puts every eligible background tab in that window to sleep at once, leaving just what you're working on awake.
+
+Suspending follows the same safety rules as the automatic [performance modes](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained): the active tab, pinned tabs, tabs playing sound, and any site on your **Protected domains** list are always left alone. Set the automatic behaviour — Manual, Balanced, or Aggressive — in **Settings**.
+
+## "Already open" — the duplicate catcher {#already-open-the-duplicate-catcher}
+
+One more helper that works before duplicates even pile up: open a page you **already have open**, and a small bar slides down from the top: **"⚡ Already open"**, with the existing tab's name and two choices:
+
+- **Switch to it** — jump to the tab you already had (and the extra copy closes).
+- **Keep both** — carry on; the bar tucks itself away (it also disappears on its own after a few seconds).

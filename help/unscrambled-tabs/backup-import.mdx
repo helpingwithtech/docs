@@ -1,34 +1,58 @@
 ---
 title: "Backup & import"
-description: "Encrypted JSON backup, full restore, and Workona export import for Unscrambled Tabs"
+description: "Password-protected backup and restore of all your workspaces, plus one-click import of a Workona export"
 icon: "floppy-disk"
+keywords: ['backup', 'export', 'restore', 'import', 'Workona', 'encrypted']
 ---
 
-## Encrypted backup
+## Export an encrypted backup
 
-You can **export** an **AES-256-GCM** encrypted JSON file from **Settings**:
+Everything you've built — workspaces, folders, resources, settings, and recent [session snapshots](/help/unscrambled-tabs/session-time-travel) — can be saved to a single password-protected file:
 
-1. Choose **Export encrypted backup** and set a **strong password** (minimum length is enforced in-product).
-2. Store the file somewhere safe — **cloud drive, USB, or password manager attachment**.
-3. **The password cannot be recovered** if you lose it.
-
-## Restore — full replace
-
-**Restore** from an Unscrambled Tabs backup **replaces** all extension data that the backup contains (workspaces, settings snapshot, etc.). This is intentional for migration or disaster recovery.
+<Steps>
+  <Step title="Open Settings → Import & Export">
+    In the side panel, click the **Settings** gear and find **Import & Export**.
+  </Step>
+  <Step title="Click Export encrypted backup">
+    A dialog asks you to **create a password** (at least 8 characters) and confirm it. Backups are always encrypted — with AES-256-GCM, the kind of encryption banks use — so there's no unprotected copy of your browsing landscape sitting in your Downloads folder.
+  </Step>
+  <Step title="Click Export & Download">
+    A dated file like `unscrambled-tabs-backup-encrypted-2026-07-30.json` lands in your downloads. Store it somewhere safe — cloud drive, USB, or a password manager attachment.
+  </Step>
+</Steps>
 
 <Warning>
-Restoring **overwrites** existing extension data. Export a fresh backup first if you might need to roll back.
+**The password cannot be recovered.** Not by us, not by anyone — that's the point of the encryption. Lose it and the backup can't be opened.
 </Warning>
+
+## Restore — a full replace
+
+To restore, drop the backup file onto the **Import** area in **Settings → Import & Export** (or click it to browse). The extension recognises an encrypted backup, asks for your password, and — after **Decrypt & Import** — loads it.
+
+<Warning>
+Restoring **replaces** your existing extension data: it's all-or-nothing, by design, for moving machines or disaster recovery. If the current setup matters, export a fresh backup first so you can roll back.
+</Warning>
+
+A wrong password gets a clear "Incorrect password" message and nothing is touched.
 
 ## Workona import
 
-If you have a **Workona JSON export**:
+Coming from Workona? Bring your workspaces with you:
 
-1. Use **Import** in Settings and select the file.
-2. The parser merges **Workona workspaces** into your **existing** extension data (import does not wipe the way a full restore does — follow on-screen result messages).
+<Steps>
+  <Step title="Export from Workona">
+    Use Workona's own export to get a `.json` file of your workspaces.
+  </Step>
+  <Step title="Drop it on the Import area">
+    Same dropzone: **Settings → Import & Export → Import**. The extension recognises a Workona export automatically.
+  </Step>
+  <Step title="Check the result">
+    Your Workona workspaces are **added on top of** your existing data — nothing is deleted or replaced (unlike a backup restore). Their saved links arrive grouped into sections in each workspace's [Resources](/help/unscrambled-tabs/workspaces#resources-saved-links).
+  </Step>
+</Steps>
 
-Invalid or malicious JSON should be rejected by validation — if import fails, verify the file is a genuine export.
+If a file isn't recognised, you'll see "Unrecognized file format" — check it's a genuine Unscrambled Tabs backup or Workona export.
 
-## What is not in backups
+## What travels and what doesn't
 
-Some **ephemeral** state (for example per-window bindings in session storage) may not travel with a backup the same way as `chrome.storage.local` data. After restore on a new machine, open each surface once so bindings can refresh.
+Backups carry your long-lived data: workspaces (tabs, groups, custom names), folders, resources, settings, and snapshots. A few live details — like which window is currently bound to which workspace — belong to the browser session, so after restoring on a new machine just open the side panel and switch to a workspace to get rolling.
