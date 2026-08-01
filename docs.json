@@ -84,7 +84,7 @@
         "tab": "Chrome Extension",
         "groups": [
           {
-            "group": "Unscrambled Tabs",
+            "group": "eggz Tab Manager",
             "pages": [
               "help/unscrambled-tabs/index",
               "help/unscrambled-tabs/getting-started",
