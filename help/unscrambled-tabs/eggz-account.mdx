@@ -1,59 +1,65 @@
 ---
 title: "Connect your eggz account"
-description: "One login shared with the eggz web app — upload documents and chat with the CRM agent from the side panel"
+description: "One login shared with the eggz web app, so you can upload documents and use the assistant from the side panel"
 icon: "user-check"
 ---
 
+The tab and workspace side of Unscrambled Tabs works without an account. Connecting your eggz account is what adds the AI assistant, document upload and bill capture.
+
+This page shows you how to sign in, what signing in unlocks, and what to do when the panel says you are signed out.
+
 ## One login, both surfaces
 
-Unscrambled Tabs can connect to your **eggz** account. You sign in **once** — in the extension or in the [web app](https://app.eggz.ai) — and both surfaces share the same session:
+You sign in once, either in the extension or in the [web app](https://app.eggz.ai), and both surfaces share the same session.
 
-- Sign in from the extension and you are also signed in at `app.eggz.ai`.
-- Already signed in to the web app? The side panel detects your session automatically — no extra clicks.
-- Signing out on either surface signs you out of both.
+Sign in from the extension and you are also signed in at `app.eggz.ai`. If you are already signed in to the web app, the side panel detects your session automatically, with no extra clicks. Signing out on either surface signs you out of both.
 
-Connecting an account is **optional** for the browser side of things — workspaces, performance modes, snapshots, and backup all work without it. Signing in is what unlocks the **AI assistant**, document upload, and bill capture.
+Connecting an account is optional for the browser side of things. Workspaces, performance modes, snapshots and backup all work without it.
 
 ## Sign in
 
-1. Open the side panel and choose **Sign in to eggz** (on the AI tab or in **Settings → eggz account**).
+1. Open the side panel and choose **Sign in to eggz**, on the AI tab or in **Settings → eggz account**.
 2. A browser tab opens with the eggz login. Sign in as usual.
 3. The success page closes itself and the side panel shows your account within a few seconds.
 
 <Note>
-The extension never stores passwords or tokens. Your session lives in a secure browser cookie on `app.eggz.ai` — the same one the web app uses.
+The extension never stores passwords or tokens. Your session lives in a secure browser cookie on `app.eggz.ai`, the same one the web app uses.
 </Note>
 
-### No organization yet?
+### No organisation yet?
 
-If your account has no organization (for example, you just signed up), finish **onboarding in the web app** first — see [Getting started](/help/guides/onboarding). Uploads and CRM chat need an organization to belong to.
+If your account has no organisation, which happens when you have only just signed up, finish onboarding in the web app first. See [Getting started](/help/guides/onboarding). Uploads and chat about your books need an organisation to belong to.
 
 ## Upload documents from the side panel
 
-When you are signed in, the side panel can send bills, receipts, and invoices straight into your eggz organization:
+When you are signed in, the side panel can send bills, receipts and invoices straight into your eggz organisation.
 
-- **Upload document** — pick a **PDF, JPEG, PNG, or WebP** file up to **10MB**.
-- **Send tab screenshot** — captures the current tab (for example, an invoice open in webmail) and uploads it as an image.
+**Upload document** takes a PDF, JPEG, PNG or WebP file up to 10MB. **Send tab screenshot** captures the current tab, for example an invoice open in webmail, and uploads it as an image.
 
-Uploads use the **same document credits and extraction pipeline** as the web app — the file appears in your dashboard like any other upload, and extraction starts automatically. See [Uploading documents](/help/guides/uploading-documents) for what happens next.
+Uploads use the same document credits and extraction pipeline as the web app. The file appears in your dashboard like any other upload, and extraction starts automatically. See [Uploading documents](/help/guides/uploading-documents) for what happens next.
 
-If your organization has used all its document credits, the upload card shows an upgrade prompt with a link to **Billing**.
+If your organisation has used all its document credits, the upload card shows an upgrade prompt with a link to **Billing**.
 
-## AI assistant included
+## The AI assistant is included
 
-Signing in unlocks the **AI assistant with no API key**. There's just **one chat** now — no modes to switch between — and it handles both your eggz books (bills, invoices, quotes, accounts, receipts) *and* your tabs and workspaces (chat, **Organize**, save-resources). It's all covered by your eggz plan — see [AI assistant & search](/help/unscrambled-tabs/ai-and-search). Fair-use limits apply; if your organisation is unusually heavy the assistant will ask you to upgrade (and you can [invite a friend](/help/unscrambled-tabs/ai-and-search#when-you-run-low-on-ai-credits) for free credits).
+Signing in unlocks the AI assistant, with no API key to paste. There is one chat, with no modes to switch between, and it handles both your eggz books (bills, invoices, quotes, accounts, receipts) and your tabs and workspaces (chat, **Organize**, save-resources).
+
+It is all covered by your eggz plan. See [AI assistant & the command bar](/help/unscrambled-tabs/ai-and-search). Fair-use limits apply, and if your organisation is unusually heavy the assistant will ask you to upgrade. You can also [invite a friend](/help/unscrambled-tabs/ai-and-search#when-you-run-low-on-ai-credits) for free credits.
 
 ## Shared credits
 
-Document processing credits belong to your **organization**, not the surface you upload from. An upload from the extension consumes the same credits as an upload from the dashboard. See your plan in **Settings → Billing** in the web app.
+Document processing credits belong to your organisation, not to the surface you upload from. An upload from the extension consumes the same credits as an upload from the dashboard. See your plan in **Settings → Billing** in the web app.
 
 ## Sign out
 
-Use **Settings → eggz account → Sign out** in the side panel, or sign out of the web app — either ends the shared session everywhere.
+Use **Settings → eggz account → Sign out** in the side panel, or sign out of the web app. Either one ends the shared session everywhere.
 
 ## Troubleshooting
 
-- **"Your eggz session has expired"** — sign in again from the side panel. Sessions end after periods of inactivity or when you sign out elsewhere.
-- **Sign-in tab opened but the panel did not update** — the extension also checks your session in the background; give it a few seconds, or close and reopen the side panel.
-- **Blocked cookies** — the shared login relies on the browser cookie for `app.eggz.ai`. If you block all cookies for that site in Chrome settings (`chrome://settings/cookies`), the extension cannot see your session — allow cookies for `app.eggz.ai`.
-- **Stuck signed out on a work profile** — some managed Chrome profiles restrict extension network access; try the same flow in a personal profile to confirm.
+If you see **"Your eggz session has expired"**, sign in again from the side panel. Sessions end after periods of inactivity, or when you sign out elsewhere.
+
+If the sign-in tab opened but the panel did not update, the extension also checks your session in the background. Give it a few seconds, or close and reopen the side panel.
+
+If cookies are blocked, the shared login cannot work, because it relies on the browser cookie for `app.eggz.ai`. If you block all cookies for that site in Chrome settings (`chrome://settings/cookies`), the extension cannot see your session, so allow cookies for `app.eggz.ai`.
+
+If you are stuck signed out on a work profile, some managed Chrome profiles restrict extension network access. Try the same flow in a personal profile to confirm.

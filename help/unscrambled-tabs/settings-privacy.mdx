@@ -1,83 +1,139 @@
 ---
 title: "Settings & privacy"
-description: "Every Unscrambled Tabs setting explained — protected domains, Open Tabs options, smart features, snapshots — plus how your data is handled, plainly"
+description: "Every Unscrambled Tabs setting explained: the main list, what sits behind Advanced, how to get back, plus how your data is handled, plainly"
 icon: "shield-halved"
-keywords: ['settings', 'privacy', 'protected domains', 'auto-save', 'theme', 'wipe data']
+keywords: ['settings', 'privacy', 'advanced', 'protected domains', 'open as', 'auto-save', 'wipe data']
 ---
+
+You want the panel docked instead of floating over the page, and you want your webmail left alone when the extension starts freeing memory. Both are in Settings, a few rows apart.
+
+This page covers everything in there, in the order you meet it, and finishes with what happens to your data.
 
 ## Where Settings lives
 
-All settings are in the **side panel**: click the **Settings** gear in the panel header. (The dashboard doesn't have its own settings screen — just theme toggles.) Here's every section, top to bottom.
+Click the gear at the top of the card or side panel. The dashboard has no settings screen of its own, only a theme toggle.
 
-## Protected Domains
+Settings is two levels deep and no more. There is the main list, which holds the handful of things people actually change. Near the bottom, one **Advanced** row opens a page of the rarer stuff. Inside Advanced, **Sessions** opens one more page, because it holds a list that can run to fifty entries.
 
-Sites that are **never suspended** — so drafts, forms, and logged-in dashboards are always safe from memory-saving. Type one domain per line (like `mail.google.com`) and click **Save**. You can list up to 100.
+Every one of those pages carries a back button at the top left, and it names where it goes. Advanced's says **Settings**. Sessions' says **Advanced**. Coming back from Advanced puts you at the row you left rather than the top of the page.
 
-Anything here is skipped by [Performance mode](/help/unscrambled-tabs/performance-and-ram) sweeps, **Free RAM now**, and the manual [Suspend buttons](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). Add your email, docs, banking, and anything with a half-written form.
+---
 
-## Default Favicon Emoji
+## The main list
 
-When a site's own icon can't be loaded, this emoji stands in for it in your lists. Click the emoji to pick a different one (the default is 🌐).
+Top to bottom.
 
-## eggz account
+### eggz account
 
-Shows whether you're connected to your eggz account, with **Sign in** / **Sign out**. One login is shared with the web app — the full story is on [Connect your eggz account](/help/unscrambled-tabs/eggz-account).
+Whether you are connected to your eggz account, with **Sign in** and **Sign out**. One login is shared with the web app. The full story is on [Connect your eggz account](/help/unscrambled-tabs/eggz-account).
 
-## Import & Export
+### Open as
 
-**Export encrypted backup** and the **Import** dropzone — covered in depth on [Backup & import](/help/unscrambled-tabs/backup-import).
+What the toolbar button opens: **Floating card over the page**, which is the default, or **Docked side panel**. The change applies to your very next click. See [Two ways to open it](/help/unscrambled-tabs/dashboard-and-side-panel).
 
-## Auto-save tabs
+### Tabs
 
-On by default. As you browse, the workspace your window is using quietly keeps up — tabs you open and close, plus changes to tab groups and which tab you're on, are saved in the background so switching away never loses anything. Turn it off and workspaces only change when you act on them directly.
+What the extension does as you open and close tabs.
 
-## Open Tabs view
+**Auto-save tabs**, on by default, means the workspace your window is using quietly keeps up with what you open and close, plus changes to tab groups and which tab you are on, so switching away never loses anything. Turn it off and workspaces only change when you act on them directly.
 
-Three controls that shape the [Open Tabs view](/help/unscrambled-tabs/open-tabs) everywhere:
+**Tab deduplication**, also on by default, means that when you open a page you already have open, a small ["Already open" bar](/help/unscrambled-tabs/manage-tabs#already-open-the-duplicate-catcher) offers to switch you to the existing tab.
+
+### Open Tabs view
+
+Four controls that shape the [Open Tabs list](/help/unscrambled-tabs/open-tabs) everywhere.
 
 | Setting | Options | Default |
 |---------|---------|---------|
-| **Placement** | **Pinned section** — always visible above workspaces · **Dedicated tab** — its own "Open Tabs" view in the side panel | Pinned section |
+| **Placement** | **Pinned section**, always visible above your workspaces · **Dedicated tab**, its own "Open Tabs" tab | Pinned section |
 | **Sort tabs by** | **Window order (tab strip)** · **Most recently active** · **Site name (A–Z)** | Window order |
-| **Group by window** | On — a divider per Chrome window · Off — one flat list | On |
+| **Group by window** | On, a divider per Chrome window · Off, one flat list | On |
+| **Keep the original tab open when dragging to a workspace** | Off, the tab moves and closes here · On, it is copied and stays open | Off |
 
-## Smart Features
+That last one changes the default for [dragging an open tab](/help/unscrambled-tabs/moving-tabs). Holding **⌥ Option** (**Alt** on Windows and Linux) as you let go always does the opposite of whatever you have set, and the card that follows your cursor names which one you are getting.
 
-- **Tab deduplication** (on by default) — when you open a page you already have open, a small ["Already open" bar](/help/unscrambled-tabs/manage-tabs#already-open-the-duplicate-catcher) offers to switch you to the existing tab.
-- **Session Time-Travel** (on by default) — the automatic five-minute snapshots. See [Session Time-Travel](/help/unscrambled-tabs/session-time-travel).
-- **Performance & RAM** — the automatic memory-saving controls:
-  - **Performance mode** — **Manual** (no automatic suspending), **Balanced** (suspend eligible inactive tabs after your chosen interval), or **Aggressive** (same, with the idle threshold capped at five minutes). Default: Manual.
-  - **Discard after** — the Balanced/Aggressive idle interval: 5, 10, 15, 30, or 60 minutes (default 15).
-  - **Free RAM now** — a one-click sweep that suspends eligible inactive tabs immediately.
+### Default Favicon Emoji
 
-  All of it skips active, pinned, and audible tabs, internal pages, and your Protected Domains — the full picture is on [Performance & RAM](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained).
+When a site's own icon cannot be loaded, this emoji stands in for it in your lists. Click the emoji to pick a different one. The default is 🌐.
 
-## Session Snapshots
+### Import & Export
 
-The list of your automatic snapshots — newest first, with a **Restore** button on each. Restoring creates a new workspace and touches nothing else; see [Session Time-Travel](/help/unscrambled-tabs/session-time-travel#restore-a-snapshot).
+**Export encrypted backup** and the **Import** dropzone, covered in depth on [Backup & import](/help/unscrambled-tabs/backup-import).
 
-## About
+### Advanced
 
-The extension name and version — handy when you're talking to support.
+A row with a chevron rather than a toggle. It opens the Advanced page, described below.
 
-## Danger Zone
+### About
 
-**Wipe all data** permanently deletes all workspaces, folders, resources, and settings from this browser, and disconnects your eggz account here. It asks you to confirm (**Confirm wipe**) — and it means it. If there's any chance you'll want your setup back, [export an encrypted backup](/help/unscrambled-tabs/backup-import) first.
+The extension name, the version you are running, and where the AI comes from. Useful when you are talking to support.
+
+### Danger Zone
+
+**Wipe all data** permanently deletes all workspaces, folders, resources and settings from this browser, and disconnects your eggz account here. It asks you to confirm, and it means it.
+
+<Warning>
+There is no undo for **Wipe all data**. If there is any chance you will want your setup back, [export an encrypted backup](/help/unscrambled-tabs/backup-import) first.
+</Warning>
+
+---
+
+## Advanced
+
+Four groups and nothing else. Three of them are right there on the page. The fourth opens a page of its own.
+
+### Performance & RAM
+
+**Performance mode** gives you **Manual**, which does no automatic unloading, **Balanced**, which unloads eligible inactive tabs after your chosen interval, or **Aggressive**, which does the same with the idle threshold capped at five minutes. The default is Manual.
+
+**Discard after** is the Balanced and Aggressive idle interval: 5, 10, 15, 30 or 60 minutes, with 15 as the default. It appears once you have picked something other than Manual.
+
+**Free RAM now** is a one-click sweep that unloads eligible inactive tabs immediately, whatever mode you are in. It tells you how many it did.
+
+All of it skips your active tab, pinned tabs, tabs playing sound, Chrome's own pages, and every site on your Protected Domains list. The full picture is on [Performance & RAM](/help/unscrambled-tabs/performance-and-ram#performance-modes-explained).
+
+### Protected Domains
+
+Sites that are never unloaded, so drafts, forms and logged-in dashboards are always safe. Type one domain per line and click **Save**. You can list up to 100.
+
+Anything here is skipped by performance-mode sweeps, by **Free RAM now**, and by the manual [Suspend buttons](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). Good candidates are your webmail, your documents tool, your banking, your payroll or HR system, and anything you routinely leave a half-written form in.
+
+<Tip>
+Paste addresses however you like. A full web address is tidied down to just its domain when you save, so `https://www.example.com/inbox/2` becomes `example.com`.
+</Tip>
+
+### Keyboard shortcuts
+
+A read-only list of every command and the key it is bound to right now, which is yours rather than the factory setting. Unbound commands read *not set*. **Change shortcuts…** opens Chrome's own shortcut page, and when you come back the list has already caught up. See [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
+
+### Sessions
+
+A row with a chevron and a count. It opens a page of its own holding both halves of [Session Time-Travel](/help/unscrambled-tabs/session-time-travel).
+
+At the top is the **Session Time-Travel** switch, with what it does written next to it: a snapshot of your open tabs every 5 minutes, and the last 50 kept. Underneath, **Snapshots** is the whole list, newest first, each showing how long ago it was taken and how many tabs it holds, with a **Restore** button.
+
+Its back button says **Advanced**, because that is where it came from.
 
 ## Light and dark
 
-The theme toggle lives in the side panel and dashboard **headers** (sun/moon), not in Settings. Both themes are designed for comfortable contrast.
+The theme toggle lives in the header of the card, the side panel and the dashboard, as a sun or moon, rather than in Settings. Both themes are designed for comfortable contrast.
 
 ---
 
 ## Your privacy, plainly
 
-- **Your tabs, workspaces, snapshots, and settings live locally in your browser.** Core tab and workspace features need no account and no internet.
-- **The AI and eggz features are optional.** When you use them, only names and web addresses are shared by default — your open tabs' titles and addresses, and your workspace, folder, and saved-link names. A page's **actual content** is sent only after you approve the permission card, each time. See [It asks before it reads a page](/help/unscrambled-tabs/ai-and-search#it-asks-before-it-reads-a-page).
-- **Signing in, uploads, and bill capture use your eggz account** and follow the web app's data handling. The extension never stores passwords — your session is the same secure browser cookie the web app uses.
-- **The bill-capture nudge is local.** To offer the occasional ["capture any bills?" suggestion](/help/unscrambled-tabs/capture-bills#the-gentle-capture-any-bills-nudge), the extension keeps a short, rolling list of site names you've visited recently. It lives only in memory for the current browser session, is wiped when Chrome closes, and is never sent anywhere.
-- **Search is local.** Finding your tabs and workspaces happens on your computer.
+Your tabs, workspaces, snapshots and settings live locally in your browser. Core tab and workspace features need no account and no internet.
+
+The AI and eggz features are optional. When you use them, only names and web addresses are shared by default: your open tabs' titles and addresses, and your workspace, folder and saved-link names. A page's actual content is sent only after you approve the permission card, each time. See [It asks before it reads a page](/help/unscrambled-tabs/ai-and-search#it-asks-before-it-reads-a-page).
+
+Signing in, uploads and bill capture use your eggz account and follow the web app's data handling. The extension never stores passwords. Your session is the same secure browser cookie the web app uses.
+
+The bill-capture nudge is local. To offer the occasional ["capture any bills?" suggestion](/help/unscrambled-tabs/capture-bills#the-gentle-capture-any-bills-nudge), the extension keeps a short, rolling list of site names you have visited recently. It lives only in memory for the current browser session, is wiped when Chrome closes, and is never sent anywhere.
+
+Search is local too. Finding your tabs and workspaces happens on your computer.
 
 ## About the permissions Chrome asks for
 
-The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots, and suspend tabs — and its right-click menu items (**Rename this tab…**, **Save for later & close tab**, **Move tab to workspace**) need permission to appear on pages. Granting only some permissions isn't supported — if you decline, some features won't work.
+The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots and unload tabs. Its right-click menu items (**Rename this tab…**, **Save for later & close tab**, **Move tab to workspace**) need permission to appear on pages, and it needs to draw on the page you are reading, because that is what the floating card is.
+
+Granting only some permissions is not supported. If you decline, some features will not work.

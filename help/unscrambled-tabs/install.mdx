@@ -1,62 +1,61 @@
 ---
 title: "Installing Unscrambled Tabs"
-description: "Install the Unscrambled Tabs Chrome extension from the Web Store, pin it for quick access, and optional unpacked load for developers"
+description: "Install the Unscrambled Tabs Chrome extension from the Web Store, pin it to your toolbar, choose how it opens, and see what the permissions are for"
 icon: "download"
 ---
 
+Installing takes about a minute. Pinning the button afterwards is easy to skip, and it is what puts the extension one click away, so this page covers both. By the end you will have the button in your toolbar and you will know what Chrome asked you to allow.
+
 <Card title="Add Unscrambled Tabs to Chrome" icon="chrome" href="https://chromewebstore.google.com/detail/unscrambled-tabs/gfjdjhpcemmakhoaggnihfcohkmfcfcc" horizontal>
-  Opens the official Chrome Web Store listing — click **Add to Chrome** and you're installed in seconds.
+  Opens the official Chrome Web Store listing. Click **Add to Chrome** and you are installed in seconds.
 </Card>
 
 ## Install from the Chrome Web Store
 
 1. Open the [**Unscrambled Tabs** listing on the Chrome Web Store](https://chromewebstore.google.com/detail/unscrambled-tabs/gfjdjhpcemmakhoaggnihfcohkmfcfcc).
 2. Click **Add to Chrome** and confirm the permissions prompt.
-3. After install, **pin the extension** so the toolbar icon is always visible:
-   - Click the puzzle piece in the Chrome toolbar → find **Unscrambled Tabs** → click the pin icon.
+3. Pin the extension so the toolbar button is always visible: click the puzzle piece in the Chrome toolbar, find **Unscrambled Tabs**, and click the pin icon.
 
 <Tip>
-Pinning matters because the **side panel**, **dashboard**, and **⌘K / Ctrl+Shift+K** flows are much easier to reach when the action is one click away.
+Pinning matters because that button is how you open everything. One click, every time.
 </Tip>
 
-## First open
+## The first time you open it
 
-After install, typical first steps:
+Click the **Unscrambled Tabs** button and a card opens over the page you are reading. It floats on top, so nothing on the page moves. If you would rather have a panel docked to the side of the window, that is one setting away. See [Two ways to open it](/help/unscrambled-tabs/dashboard-and-side-panel).
 
-1. Click the **Unscrambled Tabs** icon to open the **side panel** (primary UI).
-2. The first time you open it, a short **welcome wizard** says hello: **Welcome → Sign in to eggz → Create your first workspace → Done**. Signing in to eggz is the recommended path — you get the AI included (no key) plus [bill capture](/help/unscrambled-tabs/capture-bills). The wizard then turns the tabs you already have open into your **first workspace** (and [pins it](/help/unscrambled-tabs/workspaces) for you) — or, if you skip, it sets up a starter workspace so you're never staring at an empty screen.
-3. Open **Settings** in the side panel to set your **Performance mode** and **Protected domains**, and to [connect your eggz account](/help/unscrambled-tabs/eggz-account) for the AI, uploads, and bill capture.
+A short welcome says hello and offers to **sign in to eggz**. Signing in is optional: workspaces, tab tools, memory saving, snapshots and backup all work without an account. Signing in adds the AI assistant, document upload and [bill capture](/help/unscrambled-tabs/capture-bills).
 
-<Note>
-Signing up for eggz from the extension? If your account doesn't have a workspace yet, we'll pop you over to the web to **finish setting up** — it takes about 60 seconds, then you're back in the side panel with the AI and bill capture unlocked.
-</Note>
+Installing also opens the full-page dashboard in a pinned tab, so the big organising view is there when you want it.
 
-## Full-page dashboard (optional)
+<Card title="Getting started, step by step" icon="rocket" href="/help/unscrambled-tabs/getting-started" horizontal>
+  Install, then your first workspace, then your first tab moved. About five minutes.
+</Card>
 
-The extension also has a **full-page dashboard** for a larger organising view — it opens as a pinned tab the first time you install, and any time after that via the **Open Dashboard** button in the side panel header. It uses the same data as the side panel; take the tour on [Meet the side panel & dashboard](/help/unscrambled-tabs/dashboard-and-side-panel).
-
-## Keyboard shortcuts
+## Keyboard shortcuts, out of the box
 
 | Action | Mac | Windows / Linux |
 |--------|-----|------------------|
-| Open search | ⌘K | Ctrl+Shift+K |
-| Open AI assistant | ⌘J | Ctrl+Shift+J |
-| Jump to a workspace (quick switcher) | Alt+A | Alt+A |
-| Save or move the current tab to a workspace | Alt+D | Alt+D |
+| Search everything | ⌘K | Ctrl+Shift+K |
+| AI Assistant | ⌘J | Ctrl+Shift+J |
+| Jump to a workspace | ⌥A | Alt+A |
+| Save tab to a workspace | ⌥D | Alt+D |
 
-Two more commands — **Switch to the next workspace** and **Switch to the previous workspace** — ship without keys so they can't clash with shortcuts you already use; give them keys at `chrome://extensions/shortcuts`. The full run-down of what each shortcut does is on the [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts) page.
+Two more commands, **Next workspace** and **Previous workspace**, ship without keys so they cannot clash with shortcuts you already use. Give them keys at `chrome://extensions/shortcuts`. The full run-down is on [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
 
-## Developers — load unpacked
+## Developers: load unpacked
 
 If you are building from source:
 
-1. Run your team’s build command (for example `pnpm run build`) to produce an unpacked `dist/` folder.
-2. Chrome → **Extensions** → enable **Developer mode** → **Load unpacked** → select `dist/`.
+1. Run your team's build command (for example `pnpm run build`) to produce an unpacked `dist/` folder.
+2. Go to Chrome → **Extensions**, enable **Developer mode**, click **Load unpacked**, and select `dist/`.
 
 <Warning>
 Unpacked builds are for development only. End users should install from the **Chrome Web Store** so Chrome can apply automatic updates and signature checks.
 </Warning>
 
-## Permissions — why they exist
+## Why the permissions exist
 
-The extension needs broad **tab** access to save workspaces, switch tabs, capture snapshots, and use discard. **Your browsing data stays local** to the extension unless you explicitly use features that send content to **eggz** — the AI assistant, signed-in CRM chat, and document uploads. See [Settings & privacy](/help/unscrambled-tabs/settings-privacy) for detail.
+The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots and unload idle tabs. It also needs to draw on the page you are reading, because that is what the floating card is, and so its right-click menu items can appear on pages.
+
+Your browsing data stays local to the extension unless you deliberately use a feature that sends content to eggz: the AI assistant, document uploads and bill capture. [Settings & privacy](/help/unscrambled-tabs/settings-privacy) has the detail.
