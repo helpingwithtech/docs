@@ -16,7 +16,7 @@ Discarding is **not closing**. If a tab disappears entirely, that is a different
 
 ## The three performance modes {#performance-modes-explained}
 
-You choose a mode in **Settings → Smart Features → Performance & RAM**. All three modes respect the **same safety rules** for *automatic* background sweeps (for example: active, pinned, audible, internal pages, and **Protected domains** are skipped). **Free RAM now** is available in every mode and uses the same safety gates.
+You choose a mode in **Settings → Advanced → Performance & RAM**. All three modes respect the **same safety rules** for *automatic* background sweeps (for example: active, pinned, audible, internal pages, and **Protected domains** are skipped). **Free RAM now** is available in every mode and uses the same safety gates.
 
 Prefer to aim by hand? You can also suspend a **single tab**, or all background tabs of one window at once, straight from the Open Tabs view — see [Suspend a tab](/help/unscrambled-tabs/manage-tabs#suspend-a-tab). The same protections apply.
 
@@ -89,7 +89,7 @@ If you press **Free RAM now** in any mode, eligible inactive tabs can unload **i
 
 ## Free RAM now
 
-**Free RAM now** is a **manual** button in **Settings**. It:
+**Free RAM now** is a **manual** button in **Settings → Advanced → Performance & RAM**. It:
 
 - Discards **eligible** inactive tabs **now** (not on a timer).
 - **Does not remove** tabs from the strip.
@@ -101,7 +101,7 @@ Use it when fans spin up or Chrome feels heavy, without changing your performanc
 
 ## What is never discarded (by design)
 
-Typical protections (exact behaviour ships with your version):
+These are always skipped:
 
 - **Active** tab in its window
 - **Pinned** tabs
@@ -111,7 +111,7 @@ Typical protections (exact behaviour ships with your version):
 - **Non-http(s)** URLs the extension treats as ineligible
 - Hostnames matching your **Protected domains** list
 
-Add domains you care about (mail, docs, banking, HR tools) under **Protected domains** in Settings.
+Add domains you care about (mail, docs, banking, HR tools) under **Settings → Advanced → Protected Domains**.
 
 ---
 

@@ -1,22 +1,22 @@
 ---
 title: "Workspaces & tabs"
-description: "Create, switch, personalise, and organise browser workspaces — with folders, pinning, bulk actions, saved tabs, and saved links"
+description: "Create, switch, pin, file into folders and archive browser workspaces — plus saved tabs, saved links and bulk actions"
 icon: "folder-tree"
-keywords: ['workspaces', 'switch workspace', 'folders', 'pin workspace', 'tab groups', 'resources', 'duplicate workspace']
+keywords: ['workspaces', 'switch workspace', 'folders', 'pin workspace', 'archive', 'tab groups', 'resources', 'duplicate workspace']
 ---
 
 ## What a workspace is
 
-A **workspace** is a **saved set of browser tabs** with a name, a colour, and an icon — one workspace per client, project, or hat you wear. Switch to a workspace and your window becomes that project's tabs; switch away and everything is saved, exactly as you left it, ready for next time.
+A **workspace** is a **saved set of browser tabs** with a name, a colour and an icon — one per client, project, or hat you wear. Switch to a workspace and your window becomes that project's tabs; switch away and everything is saved exactly as you left it, ready for next time.
 
 ## Create a workspace
 
 <Steps>
   <Step title="Click New">
-    In the **side panel**, click **New** at the top of the Workspaces list. On the **dashboard**, click **New Workspace** at the bottom of the sidebar.
+    In the **card or side panel**, click **New** beside the *Workspaces* heading. On the **dashboard**, click **New Workspace** at the foot of the open sidebar.
   </Step>
   <Step title="Name it and make it yours">
-    Give it a name (up to 40 characters — "Acme Pty Ltd", "Tax time", "Weekend reno"), pick an **icon** and a **colour**. A live preview shows how it'll look.
+    Give it a name (up to 40 characters — "Birdsong Pottery", "Tax time", "Weekend reno"), then pick an **icon** and a **colour**. A live preview shows how the row will look.
   </Step>
   <Step title="Click Create Workspace">
     Done — and here's the nice part: **the tabs you have open right now are added automatically**, so your current session is instantly safe. (It captures the window you created it from.)
@@ -24,7 +24,7 @@ A **workspace** is a **saved set of browser tabs** with a name, a colour, and an
 </Steps>
 
 <Tip>
-Other ways to spawn a workspace: **Save all** on a window in the [Open Tabs view](/help/unscrambled-tabs/open-tabs#whole-window-moves) turns a whole window into a workspace, and restoring a [session snapshot](/help/unscrambled-tabs/session-time-travel) creates one too.
+Other ways to make one: **Save all** on a window in the [Open Tabs view](/help/unscrambled-tabs/open-tabs#whole-window-moves) turns a whole window into a workspace; restoring a [session snapshot](/help/unscrambled-tabs/session-time-travel) creates one; and on the dashboard, **⌘K → Create workspace** does it from the keyboard.
 </Tip>
 
 ## Switching — everything comes back {#switching}
@@ -32,80 +32,108 @@ Other ways to spawn a workspace: **Save all** on a window in the [Open Tabs view
 Switching is the heart of the product, so here's exactly what happens. When you switch this window from workspace A to workspace B:
 
 1. **A is saved first** — its tabs, their order, which tabs were pinned, your Chrome **tab groups** (names, colours, and whether they were collapsed), **which tab you were focused on**, and any [custom tab names](/help/unscrambled-tabs/manage-tabs#rename-any-tab).
-2. **B opens in the same window** — and not just its tabs: its **tab groups are rebuilt**, **pinned tabs are pinned again** (including the first one), your **custom tab names are back on the strip**, and the **exact tab you were on last time is focused**.
+2. **B opens in the same window** — and not just its tabs: its **tab groups are rebuilt**, **pinned tabs are pinned again**, your **custom tab names are back on the strip**, and the **exact tab you were on last time is focused**.
 
 No mystery windows, no "roughly what you had". You leave a workspace mid-thought and come back to the same thought.
 
 **Where to click:**
 
-- **Side panel** — click the workspace's name (or the ▶ **Switch to workspace** button that appears on hover).
+- **Card or side panel** — click the workspace's name (or the ▶ **Switch to workspace** button that appears on hover).
 - **Dashboard sidebar** — clicking a row *shows* that workspace's tabs and links so you can peek without committing; to actually switch, use the **Switch** pill that appears when you hover the row, or the **Switch to this workspace** button in the header.
-- **Keyboard** — **Alt+A** opens the quick switcher: most-recent first, and **Enter flips you straight back to your previous workspace**. See [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
+- **Keyboard** — the **Jump to a workspace** shortcut (**⌥A** on a Mac, **Alt+A** on Windows and Linux) opens the quick switcher: most-recent first, and **Enter flips you straight back to your previous workspace**. See [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
+- **On the dashboard, ⌘K** (**Ctrl+K**) → **Switch workspace…** → pick one.
 
 ### Next / previous workspace
 
-Two more commands — **Switch to the next workspace** and **Switch to the previous workspace** — step through your workspace list in order, wrapping around at the end. They ship without keys; give them keys at `chrome://extensions/shortcuts` and you can cycle workspaces without ever opening a panel.
+Two more commands — **Switch to the next workspace** and **Switch to the previous workspace** — step through your workspace list in order, wrapping around at the end. They ship without keys; give them keys at `chrome://extensions/shortcuts` and you can cycle workspaces without opening anything.
 
 ## One workspace per window
 
-Each Chrome window remembers **its own** workspace. Switching only ever affects the window you're in, so you can keep Client A on your left monitor and Client B on your right, each window's side panel and dashboard showing its own world.
+Each Chrome window remembers **its own** workspace. Switching only ever affects the window you're in, so you can keep one client on your left monitor and another on your right, each window showing its own world.
 
-Want that second window without leaving your first? Hover a workspace row on the dashboard and click **Open in new window** — the workspace opens in a fresh Chrome window (groups, pins and all) and that window is now bound to it. Your current window doesn't change. The same button lives in the pinned-workspace flyouts on the sidebar rail.
+Want that second window without leaving your first? Hover a workspace row on the dashboard and click **Open in new window** — the workspace opens in a fresh Chrome window (groups, pins and all) and that window is now bound to it. Your current window doesn't change. The same button lives in the pinned-workspace flyouts on the slim sidebar.
 
-## Personalise a workspace
+## The row menu — two ways to open it {#row-menu}
 
-Hover a workspace row and click **⋯** for the menu. What's available:
+Every workspace row has a **⋯** button that appears when you hover it. **Right-clicking the row does exactly the same thing** — same menu, same items, opened right where your cursor is. Use whichever is quicker.
 
-| Action | Side panel | Dashboard | What it does |
+<Note>
+Right-click gives you the browser's own menu instead in two cases: while you're typing a new name into a row, and while you're ticking rows with checkboxes. In both, the row has no menu to offer.
+</Note>
+
+What's in it:
+
+| Action | Card / side panel | Dashboard | What it does |
 |--------|:---:|:---:|--------------|
-| **Rename** | ✓ | ✓ | Type the new name (inline in the panel; a small dialog on the dashboard) |
-| **Pin to sidebar** / **Unpin from sidebar** | ✓ | ✓ | Pinned workspaces get their own **Pinned** section — and their own icons at the top of the dashboard's sidebar rail, one click away all day |
+| **Rename** | ✓ | ✓ | Type the new name (in place in the panel; a small dialog on the dashboard) |
+| **Duplicate** | — | ✓ | Makes "*name* (copy)" right below the original — tabs, tab groups and saved links all copied. Great for a template you clone per client |
 | **Change colour** | — | ✓ | Pick from the nine workspace colours |
-| **Set emoji icon** | — | ✓ | Opens a searchable emoji picker — the emoji replaces the row's icon everywhere. **Reset to favicon** puts it back |
-| **Duplicate** | — | ✓ | Makes "*name* (copy)" right below the original — tabs, tab groups, and saved links all copied. Great for a template workspace you clone per client |
-| **Move to folder** | — | ✓ | File the workspace into any folder (or back to **No folder**) |
+| **Move to folder** | — | ✓ | File the workspace into any folder, or back out to no folder |
+| **Pin to sidebar** / **Unpin from sidebar** | ✓ | ✓ | Pinned workspaces get their own **Pinned** section — and their own icons on the dashboard's slim sidebar, one click away all day |
+| **Archive** | ✓ | ✓ | Files it away without deleting anything — see below |
+| **Set emoji icon** / **Change emoji icon** | — | ✓ | Opens a searchable emoji picker; the emoji replaces the row's icon everywhere. **Reset to favicon** puts it back |
 | **Delete** | ✓ | ✓ | Asks first — "This cannot be undone" means it |
 
 <Note>
 When a workspace has no emoji set, its row shows the icon of its first saved tab — so workspaces tend to look like what they contain, automatically.
 </Note>
 
+## Archiving — filing without deleting {#archiving}
+
+Finished with a project but not ready to throw it away? **Archive** it.
+
+An archived workspace:
+
+- **Leaves every list** — Active, Pinned, its folder — and gathers in an **Archived** section at the very bottom, collapsed until you click it open. The heading shows the count, like **Archived (3)**.
+- **Keeps everything** — its tabs, tab groups, custom tab names and saved links are all intact.
+- **Is unpinned** if it was pinned, so it's out of the slim sidebar too.
+- **Can't be switched into or dropped onto** — it's out of the way on purpose. Its row menu is reduced to just **Restore** and **Delete**, and hovering it offers **Restore** where other rows offer Switch.
+- **Stays out of search results** and out of **Select all**, so a bulk action can't sweep up something you deliberately shelved.
+
+**Restore** puts it straight back into the normal lists, exactly as it was (though not re-pinned — pin it again if you want it in the slim sidebar).
+
+<Tip>
+On the dashboard you can also press **⌘K** (**Ctrl+K**) and type *archive* → **Archive workspace…** → pick which one.
+</Tip>
+
 ## Folders
 
 Once you're past a handful of workspaces, group them into **folders** ("Clients", "Personal", "Archive"…):
 
-- **Create** — click the **New folder** icon at the top of the side panel's Workspaces list, or the **+** next to **Folders** in the dashboard sidebar. Type the name, press Enter.
-- **Rename / Set emoji icon / Delete folder** — in the folder's **⋯** menu, on either surface. Deleting a folder is gentle: **the workspaces inside are moved out, not deleted**.
-- **Reorder** — drag a folder up or down the list in the dashboard's expanded sidebar; a blue line shows where it'll land.
-- **Fill them** — on the dashboard, drag a workspace onto a folder (or onto a folder's icon in the collapsed rail), use **⋯ → Move to folder**, or select several and move them together (below). Folders remember whether you left them open or closed.
+- **Create** — hover the *Workspaces* heading in the card or side panel and click the folder icon beside **New**; on the dashboard, click the **+** next to **Folders**. Type the name, press Enter. (Or **⌘K → New folder**.)
+- **Rename / Set emoji icon / Delete folder** — in the folder's **⋯** menu. Deleting a folder is gentle: **the workspaces inside are moved out, not deleted**.
+- **Reorder** — drag a folder up or down in the dashboard's open sidebar; a line shows where it'll land.
+- **Fill them** — on the dashboard, drag a workspace onto a folder (or onto its icon on the slim sidebar), use **⋯ → Move to folder**, or select several and move them together (below).
 
-## Select several at once (bulk actions)
+Folders remember whether you left them open or closed. And while you're dragging a tab, holding still over a **closed** folder for a moment springs it open so you can drop on a workspace inside — see [Moving tabs](/help/unscrambled-tabs/moving-tabs).
 
-On the dashboard's expanded sidebar you can act on many workspaces in one go:
+## Select several at once (bulk actions) {#select-several-at-once-bulk-actions}
+
+On the dashboard's open sidebar you can act on many workspaces in one go:
 
 <Steps>
   <Step title="Start selecting">
-    Hover any workspace or folder row — a faint checkbox appears on its left. Click it and you're in selection mode. Ticking a folder ticks everything inside it. **Select all** / **Deselect all** sits at the top of the list.
+    Hover any workspace or folder row — a faint checkbox appears on its left. Click it and you're in selection mode. Ticking a folder ticks everything inside it. **Select all** / **Deselect all** sits at the top of the list. (Archived workspaces are never included in **Select all**.)
   </Step>
   <Step title="Act on the selection">
-    A bar appears at the bottom of the sidebar showing **"N selected"** with two buttons: **Move** (pick a folder, or **No folder (ungrouped)**) and **Delete**.
+    A bar appears at the bottom of the sidebar showing **"N selected"** with two buttons: **Move** (pick a folder, or no folder at all) and **Delete**.
   </Step>
   <Step title="Changed your mind?">
-    **Esc** clears the selection. And after a bulk delete, a toast appears with an **Undo** button — click it within **5 seconds** and everything comes back exactly as it was.
+    **Esc** clears the selection. And after a bulk delete, a message appears with an **Undo** button — click it within **5 seconds** and everything comes back exactly as it was.
   </Step>
 </Steps>
 
 <Warning>
-Bulk-deleting a **folder** deletes the workspaces inside it too (unlike deleting a folder from its ⋯ menu, which moves them out first). The 5-second **Undo** on the toast is your safety net — after that, it's permanent.
+Bulk-deleting a **folder** deletes the workspaces inside it too (unlike deleting a folder from its ⋯ menu, which moves them out first). The 5-second **Undo** is your safety net — after that, it's permanent.
 </Warning>
 
-## The tabs inside a workspace
+## The tabs inside a workspace {#the-tabs-inside-a-workspace}
 
 Select a workspace on the dashboard and its middle **Tabs** pane lists every saved tab. From there:
 
 - **Click a tab** — if this workspace is the one your window is using, you jump to the live tab; otherwise the page opens in a new tab.
 - **Hover for actions** — **Rename tab** (your name shows everywhere, see [renaming](/help/unscrambled-tabs/manage-tabs#rename-any-tab)), **Open in new tab**, and **Remove tab**.
-- **Drag to reorder** the saved list, or **drag a tab onto another workspace** in the sidebar to move it there.
+- **Drag to reorder** the saved list, or **drag a tab onto another workspace** in the sidebar to move it there — see [Moving tabs](/help/unscrambled-tabs/moving-tabs).
 
 <Warning>
 **Remove tab** removes it from the workspace — and if that workspace is the active one, it also **closes the live browser tab**. There's no confirmation, so aim carefully.
@@ -118,12 +146,14 @@ Tabs are also saved automatically as you browse: with **Auto-save tabs** on (the
 Every workspace also has **Resources**: links you want to *keep* without keeping a tab open. They live in the right-hand pane on the dashboard.
 
 - **Add** — click **Add** in the Resources pane header, paste the address, optionally give it a title, **Save**.
-- **From a tab** — click **Save as resource** on any row of the [Open Tabs view](/help/unscrambled-tabs/open-tabs#what-you-can-do-with-a-tab), or right-click any page → **Unscrambled Tabs** → **Save for later & close tab**.
+- **From a tab** — click **Save as resource** on any row of the [Open Tabs view](/help/unscrambled-tabs/open-tabs#what-you-can-do-with-a-tab), drag a tab onto the Resources pane, or right-click any page → **Unscrambled Tabs** → **Save for later & close tab**.
 - **Edit / Remove** — hover a resource for the pencil and ✕.
 
-The magic is in the click: **click a resource and it opens in a new tab *and* graduates into the workspace's tabs** — it stops being a bookmark and starts being part of the session. (Want to peek without that? Hover and use **Open in new tab** instead, and the resource stays put.) When the AI's [Save to Workspaces](/help/unscrambled-tabs/ai-and-search#organise-your-tabs-with-a-nudge) mode or a [Workona import](/help/unscrambled-tabs/backup-import#workona-import) files resources for you, they arrive tidily grouped into named sections.
+The magic is in the click: **click a resource and it opens in a new tab *and* graduates into the workspace's tabs** — it stops being a bookmark and starts being part of the session. (Want to peek without that? Hover and use **Open in new tab** instead, and the resource stays put.)
 
-In the side panel, the active workspace's resources appear as a **Resources** section — click one there and it simply opens in a new tab.
+Resources can be grouped into named **sections**, and you can drag a tab straight onto a section heading to file it there.
+
+In the card and side panel, the active workspace's resources appear as a **Resources** section — click one there and it simply opens in a new tab.
 
 ## Pinned tabs
 

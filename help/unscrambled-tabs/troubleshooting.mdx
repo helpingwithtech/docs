@@ -1,0 +1,109 @@
+---
+title: "Troubleshooting"
+description: "Fixes for the things people actually run into — the button not opening a card, a shortcut that does nothing, a drop that didn't land, a missing workspace, a tab that reloaded"
+icon: "life-ring"
+keywords: ['troubleshooting', 'not working', 'fix', 'problem', 'help']
+---
+
+## The toolbar button opens a side panel, not the card
+
+That's expected on pages Chrome won't let extensions draw on: its own `chrome://` settings pages, the Chrome Web Store, page source, and files opened from your computer. The card can't exist there, so the side panel opens instead.
+
+On an ordinary web page and still getting the panel? Check **Settings → Open as** — it may be set to **Docked side panel**.
+
+## The card is in my way
+
+Three things you can do, in increasing order of permanence:
+
+- **Move or resize it** — drag its top bar to move it, or any edge or corner to resize. It remembers where you put it.
+- **Snap it smaller** — the three size buttons in its header: **Dock to the side**, **Medium size**, **Fill the window**.
+- **Switch to the docked panel for good** — **Settings → Open as → Docked side panel**. From then on the toolbar button opens the panel and the page makes room for it.
+
+To close the card, click the toolbar button again, or the **×** in its header.
+
+## A keyboard shortcut does nothing
+
+Almost always another extension or app already owns that combination.
+
+1. Open **Settings → Advanced → Keyboard shortcuts**. It shows what each command is bound to **right now**. If a command reads *not set*, it has no key.
+2. Click **Change shortcuts…** (or go to `chrome://extensions/shortcuts`), and give it a different combination.
+3. Come back — the list will already show the new key.
+
+**Next workspace** and **Previous workspace** ship with no keys at all, on purpose. They do nothing until you give them some.
+
+## I dragged a tab and nothing happened
+
+Check what you dropped it on:
+
+- **A folder.** Folders hold workspaces, not tabs. Hold still over the folder for a moment and it opens, then drop on a workspace inside it.
+- **An archived workspace.** Archived workspaces don't take drops. Restore it first.
+- **Empty space.** Only workspace rows, pinned workspace icons and the Resources pane accept a tab.
+
+And two kinds of tab that can never be filed: **incognito tabs** (you'll see *"Incognito tabs can't be moved to a workspace."*) and Chrome's own internal pages.
+
+## I dropped a tab in the wrong place
+
+For **ten seconds** after any drop, the message in the corner has an **Undo** button. Click it, or press **⌘Z** (**Ctrl+Z** on Windows and Linux).
+
+If ⌘Z did nothing:
+
+- The ten seconds were up — the message has to still be on screen.
+- Your cursor was in a text box. ⌘Z belongs to the text you're typing; click somewhere else first.
+
+See [Undo](/help/unscrambled-tabs/moving-tabs#undo).
+
+## My tab moved when I wanted a copy (or the other way round)
+
+Dragging **moves** by default. Hold **⌥ Option** (**Alt** on Windows and Linux) *as you let go* to copy instead. The card that follows your cursor spells out which one you're about to get, so glance at it before you release.
+
+If you'd rather it copied every time, turn on **Settings → Open Tabs view → Keep the original tab open when dragging to a workspace** — the modifier then moves instead.
+
+## A workspace has vanished
+
+Two likely explanations:
+
+- **It was archived.** Scroll to the bottom of the workspace list for a collapsed **Archived (n)** section — click it open and use **Restore**.
+- **You're searching for it.** Archived workspaces are deliberately kept out of search results. Open the Archived section instead.
+
+If it isn't there either, it was deleted. Deletion has no undo, but if you have an [encrypted backup](/help/unscrambled-tabs/backup-import) from before, restoring it brings everything back.
+
+## Right-clicking a workspace row gives me the browser's menu
+
+That happens in two situations, both on purpose:
+
+- You're **typing a new name** into that row — you may well want the browser's own text menu there.
+- You're **ticking rows with checkboxes** — in selection mode a row has no menu of its own.
+
+Finish or cancel (press **Esc**) and right-click will bring up the row's menu again. So will the **⋯** button that appears when you hover the row.
+
+## A tab reloaded when I clicked it
+
+It had been unloaded to free memory — the tab stays on your tab strip, but its page contents were released, so Chrome fetches it again when you come back.
+
+- To stop it happening to a particular site, add that site to **Settings → Advanced → Protected Domains**.
+- To stop it happening automatically at all, set **Settings → Advanced → Performance & RAM → Performance mode** to **Manual**.
+
+Full detail on [Performance & RAM](/help/unscrambled-tabs/performance-and-ram).
+
+## "Nothing to suspend here"
+
+Everything in that window is protected: your active tab, pinned tabs, tabs playing sound, Chrome's own pages, and anything on your **Protected Domains** list are all left alone. That message means there was nothing left that was safe to unload.
+
+## My snapshots list is empty
+
+- **Session Time-Travel may be off.** **Settings → Advanced → Sessions** — the switch is at the top.
+- **It may just be early.** The first snapshot appears after five minutes; the screen says so while it waits.
+
+## An import file wasn't recognised
+
+You'll see *"Unrecognized file format."* The Import box takes two kinds of file: an **Unscrambled Tabs encrypted backup** (the `.json` file the Export button produces) or a workspace export from the tool you're migrating from. Anything else is refused, and nothing is touched.
+
+If you're restoring a backup and get *"Incorrect password"*, the password is the one you typed when you exported it. It can't be recovered or reset — that's the point of the encryption.
+
+## The AI won't let me in
+
+The assistant needs you signed in to eggz. The AI tab shows a **Sign in to eggz** card when you're not. If you sign in and the panel doesn't update, give it a few seconds, or close and reopen it. More on [Connect your eggz account](/help/unscrambled-tabs/eggz-account#troubleshooting).
+
+## Still stuck?
+
+Grab your version number first — **Settings → About** shows the exact build you're running — then [email support](mailto:support@eggz.ai?subject=Unscrambled%20Tabs) and tell us what you clicked and what happened.
