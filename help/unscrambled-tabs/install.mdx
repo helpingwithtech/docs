@@ -1,34 +1,35 @@
 ---
 title: "Installing Unscrambled Tabs"
-description: "Install the Unscrambled Tabs Chrome extension from the Web Store, pin it to your toolbar, choose how it opens, and what the permissions are for"
+description: "Install the Unscrambled Tabs Chrome extension from the Web Store, pin it to your toolbar, choose how it opens, and see what the permissions are for"
 icon: "download"
 ---
 
+Installing takes about a minute. Pinning the button afterwards is easy to skip, and it is what puts the extension one click away, so this page covers both. By the end you will have the button in your toolbar and you will know what Chrome asked you to allow.
+
 <Card title="Add Unscrambled Tabs to Chrome" icon="chrome" href="https://chromewebstore.google.com/detail/unscrambled-tabs/gfjdjhpcemmakhoaggnihfcohkmfcfcc" horizontal>
-  Opens the official Chrome Web Store listing — click **Add to Chrome** and you're installed in seconds.
+  Opens the official Chrome Web Store listing. Click **Add to Chrome** and you are installed in seconds.
 </Card>
 
 ## Install from the Chrome Web Store
 
 1. Open the [**Unscrambled Tabs** listing on the Chrome Web Store](https://chromewebstore.google.com/detail/unscrambled-tabs/gfjdjhpcemmakhoaggnihfcohkmfcfcc).
 2. Click **Add to Chrome** and confirm the permissions prompt.
-3. After install, **pin the extension** so the toolbar button is always visible:
-   - Click the puzzle piece in the Chrome toolbar → find **Unscrambled Tabs** → click the pin icon.
+3. Pin the extension so the toolbar button is always visible: click the puzzle piece in the Chrome toolbar, find **Unscrambled Tabs**, and click the pin icon.
 
 <Tip>
 Pinning matters because that button is how you open everything. One click, every time.
 </Tip>
 
-## First open
+## The first time you open it
 
-Click the **Unscrambled Tabs** button and a card opens over the page you're reading — it floats on top, so nothing on the page moves. (Prefer a panel docked to the side of the window? That's one setting — see [Two ways to open it](/help/unscrambled-tabs/dashboard-and-side-panel).)
+Click the **Unscrambled Tabs** button and a card opens over the page you are reading. It floats on top, so nothing on the page moves. If you would rather have a panel docked to the side of the window, that is one setting away. See [Two ways to open it](/help/unscrambled-tabs/dashboard-and-side-panel).
 
-The first time, a short welcome says hello and offers to **sign in to eggz**. Signing in is optional: workspaces, tab tools, memory saving, snapshots and backup all work without an account. Signing in adds the AI assistant, document upload and [bill capture](/help/unscrambled-tabs/capture-bills).
+A short welcome says hello and offers to **sign in to eggz**. Signing in is optional: workspaces, tab tools, memory saving, snapshots and backup all work without an account. Signing in adds the AI assistant, document upload and [bill capture](/help/unscrambled-tabs/capture-bills).
 
-The install also opens the **full-page dashboard** in a pinned tab, so the big organising view is there when you want it.
+Installing also opens the full-page dashboard in a pinned tab, so the big organising view is there when you want it.
 
 <Card title="Getting started, step by step" icon="rocket" href="/help/unscrambled-tabs/getting-started" horizontal>
-  Install → your first workspace → your first tab moved. About five minutes.
+  Install, then your first workspace, then your first tab moved. About five minutes.
 </Card>
 
 ## Keyboard shortcuts, out of the box
@@ -40,21 +41,21 @@ The install also opens the **full-page dashboard** in a pinned tab, so the big o
 | Jump to a workspace | ⌥A | Alt+A |
 | Save tab to a workspace | ⌥D | Alt+D |
 
-Two more commands — **Next workspace** and **Previous workspace** — ship without keys so they can't clash with shortcuts you already use. Give them keys at `chrome://extensions/shortcuts`. The full run-down is on [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
+Two more commands, **Next workspace** and **Previous workspace**, ship without keys so they cannot clash with shortcuts you already use. Give them keys at `chrome://extensions/shortcuts`. The full run-down is on [Keyboard shortcuts](/help/unscrambled-tabs/keyboard-shortcuts).
 
-## Developers — load unpacked
+## Developers: load unpacked
 
 If you are building from source:
 
 1. Run your team's build command (for example `pnpm run build`) to produce an unpacked `dist/` folder.
-2. Chrome → **Extensions** → enable **Developer mode** → **Load unpacked** → select `dist/`.
+2. Go to Chrome → **Extensions**, enable **Developer mode**, click **Load unpacked**, and select `dist/`.
 
 <Warning>
 Unpacked builds are for development only. End users should install from the **Chrome Web Store** so Chrome can apply automatic updates and signature checks.
 </Warning>
 
-## Permissions — why they exist
+## Why the permissions exist
 
-The extension needs broad **tab** access to save workspaces, switch tab sets, rename tabs, take snapshots and unload idle tabs. It needs to draw on the page you're reading, because that is what the floating card is — and so its right-click menu items can appear on pages.
+The extension needs broad tab access to save workspaces, switch tab sets, rename tabs, take snapshots and unload idle tabs. It also needs to draw on the page you are reading, because that is what the floating card is, and so its right-click menu items can appear on pages.
 
-**Your browsing data stays local** to the extension unless you explicitly use features that send content to eggz — the AI assistant, document uploads and bill capture. See [Settings & privacy](/help/unscrambled-tabs/settings-privacy) for detail.
+Your browsing data stays local to the extension unless you deliberately use a feature that sends content to eggz: the AI assistant, document uploads and bill capture. [Settings & privacy](/help/unscrambled-tabs/settings-privacy) has the detail.

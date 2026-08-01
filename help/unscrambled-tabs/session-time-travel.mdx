@@ -5,16 +5,18 @@ icon: "clock-rotate-left"
 keywords: ['snapshots', 'session', 'restore', 'crash recovery', 'startup']
 ---
 
-## Your session, quietly photographed
+You close the wrong ten tabs, or the browser goes down in the middle of a research session. Either way, a copy of your session from five minutes ago is sitting there waiting.
 
-**Session Time-Travel** takes an automatic snapshot of your current window's tabs **every 5 minutes** — what's open, the tab order, your Chrome tab groups, and which tab you were on. It keeps the most recent **50** snapshots, so you can rewind roughly the **last four hours** of browsing.
+This page shows you what gets captured, how to bring a moment back, and what happens after a restart.
 
-Closed the wrong ten tabs? Browser went down mid-research? A five-minute-old copy of your session is waiting.
+## A copy of your session, every five minutes
 
-It's on by default. The switch lives in **Settings → Advanced → Sessions**, at the top of the screen.
+**Session Time-Travel** takes an automatic snapshot of your current window's tabs every 5 minutes: what is open, the tab order, your Chrome tab groups, and which tab you were on. It keeps the most recent 50 snapshots, so you can rewind roughly the last four hours of browsing.
+
+It is on by default. The switch lives in **Settings → Advanced → Sessions**, at the top of the screen.
 
 <Note>
-Snapshots capture the window you were last working in — if you run several windows, it's the one in focus that gets photographed.
+Snapshots capture the window you were last working in. If you run several windows, it is the one in focus that gets captured.
 </Note>
 
 ## Restore a snapshot
@@ -27,23 +29,24 @@ Snapshots capture the window you were last working in — if you run several win
     Pick the moment you want back and click **Restore**.
   </Step>
   <Step title="A new workspace appears">
-    The snapshot is restored **as a brand-new workspace** — named after its time, like **Snapshot — Jul 30, 2:15 PM** — and the panel takes you to it. Your current tabs are **not** touched: nothing closes, nothing reloads. Switch to the snapshot workspace when you're ready, or just pluck the tabs you needed and delete it after.
+    The snapshot is restored as a brand-new workspace, named after its time, like **Snapshot — Jul 30, 2:15 PM**, and the panel takes you to it. Your current tabs are not touched: nothing closes and nothing reloads. Switch to the snapshot workspace when you are ready, or pluck out the tabs you needed and delete it afterwards.
   </Step>
 </Steps>
 
 <Tip>
-Because a restore is just a workspace, everything on [Workspaces & tabs](/help/unscrambled-tabs/workspaces) applies — rename it, keep it, or delete it once it's served its purpose.
+Because a restore is just a workspace, everything on [Workspaces & tabs](/help/unscrambled-tabs/workspaces) applies. Rename it, keep it, or delete it once it has served its purpose.
 </Tip>
 
 ## When Chrome restarts
 
-You don't need to do anything after a restart — Unscrambled Tabs picks your session back up on its own:
+You do not need to do anything after a restart. Unscrambled Tabs picks your session back up on its own.
 
-- If Chrome's own "continue where you left off" already brought your tabs back, the extension simply reconnects them to your active workspace — including your [custom tab names](/help/unscrambled-tabs/manage-tabs#rename-any-tab).
-- If your tabs *didn't* come back, the extension **re-opens your active workspace** for you: tabs, pinned state, tab groups (names, colours, collapsed state), custom names, and the tab you were focused on.
+If Chrome's own "continue where you left off" has already brought your tabs back, the extension simply reconnects them to your active workspace, including your [custom tab names](/help/unscrambled-tabs/manage-tabs#rename-any-tab).
+
+If your tabs did not come back, the extension re-opens your active workspace for you: tabs, pinned state, tab groups (names, colours, collapsed state), custom names, and the tab you were focused on.
 
 Either way, you start the day where you ended the last one.
 
-## Privacy & storage
+## Privacy and storage
 
-Snapshots contain tab **titles and web addresses** and live in your browser's extension storage on your computer. They're included when you [export an encrypted backup](/help/unscrambled-tabs/backup-import), so a backup can carry your recent history to a new machine too.
+Snapshots contain tab titles and web addresses, and they live in your browser's extension storage on your computer. They are included when you [export an encrypted backup](/help/unscrambled-tabs/backup-import), so a backup can carry your recent history to a new machine too.
