@@ -12,7 +12,7 @@ eggz uses AI to automatically extract data from your receipts and bills. Upload 
 
 | Format | Extensions | Notes |
 |--------|-----------|-------|
-| PDF | `.pdf` | Single and multi-page supported. Each page counts as one document toward your plan limit. |
+| PDF | `.pdf` | Single and multi-page supported. A multi-page PDF is one upload and uses one document credit. |
 | JPEG | `.jpg`, `.jpeg` | Photos of receipts work well |
 | PNG | `.png` | Screenshots and scanned documents |
 | WebP | `.webp` | Compressed web images |
@@ -70,7 +70,7 @@ If you use the **eggz Tab Manager** Chrome extension with a [connected eggz acco
 - **Upload document** in the side panel — PDF, JPEG, PNG, or WebP up to 10MB.
 - **Send tab screenshot** — captures the page you're viewing (for example an invoice in webmail) and uploads it as an image.
 
-Extension uploads use the **same document credits and pipeline** as the dashboard — files appear in eggz like any other upload, and extraction starts automatically.
+Extension uploads use the **same document credits and pipeline** as the dashboard — files appear in eggz like any other upload, and extraction starts automatically. When the extension collects a document from a website that eggz already holds from that same website, it is not uploaded or charged again — see [How document credits are counted](#how-document-credits-are-counted).
 
 <Tip>Don't have it yet? [Add eggz Tab Manager to Chrome](https://chromewebstore.google.com/detail/unscrambled-tabs/gfjdjhpcemmakhoaggnihfcohkmfcfcc). It's free, and it can even [capture bills from any page](/help/unscrambled-tabs/capture-bills) you're browsing.</Tip>
 
@@ -115,16 +115,21 @@ See [Publish a receipt to Xero](/help/guides/expenses#publish-a-receipt-to-xero)
 
 ## Document limits
 
-Your plan determines how many documents you can process per month:
+Your plan sets how many documents eggz processes for you. Your live usage is on **Settings → Billing** in the web app, which shows how many documents you have left and when the allowance resets.
 
-| Plan | Monthly Limit | Annual Limit |
-|------|---------------|--------------|
-| Starter | 20 | 300 |
-| Professional | 100 | 1,500 |
-| Business | 1,000 | Unlimited |
-| Enterprise | Unlimited | Unlimited |
+| Plan | Document allowance | AI assistant | Billed |
+|------|--------------------|--------------|--------|
+| Free | 50 documents, granted once (the allowance does not refill) | Included | Free |
+| Solo | 20 documents per month | Included | Monthly or yearly |
+| Growth | 100 documents per month | Included | Monthly or yearly |
+| Scale | Unlimited | Included | Monthly or yearly |
 
-<Warning>Multi-page PDFs count each page as a separate document. A 3-page PDF uses 3 of your monthly allowance.</Warning>
+Plan names and prices are as shown on **Settings → Billing**. Yearly plans are billed once a year and have the same monthly document allowance as the monthly plan — there is no separate yearly cap.
+
+### How document credits are counted {#how-document-credits-are-counted}
+
+- **One upload, one document credit.** Every file you upload, capture or forward is one document, however many pages it has. A 3-page PDF uses one credit, not three.
+- **A document eggz already holds is not charged again.** When the [eggz Tab Manager](/help/unscrambled-tabs/capture-bills) extension collects a document from a website — for example when you collect a billing portal you have collected before — and eggz already holds that document from that same website, it is not uploaded or charged again. The match is the same document from the same website; a file you upload again by hand from your computer is a new upload and counts.
 
 ## Troubleshooting
 
@@ -138,7 +143,15 @@ Your plan determines how many documents you can process per month:
   </Accordion>
 
   <Accordion title="I've hit my document limit">
-    Your plan has a monthly processing limit. Upgrade your plan from **Settings > Billing** to increase your allowance. Documents uploaded after hitting the limit will not be processed until the next billing cycle or after upgrading.
+    Your plan has a document allowance. Upgrade your plan from **Settings > Billing** to increase it. Documents uploaded after hitting the limit will not be processed until the allowance resets or after upgrading.
+  </Accordion>
+
+  <Accordion title="Does a multi-page PDF use more than one credit?">
+    No. One upload is one document and uses one document credit, however many pages it has. See [How document credits are counted](#how-document-credits-are-counted).
+  </Accordion>
+
+  <Accordion title="Am I charged again for a document eggz already has?">
+    Not when the eggz Tab Manager extension collects it from a website eggz already holds it from — the same document from the same website is recognised and not uploaded or charged again. A file you upload again by hand from your computer is a new upload and counts. See [How document credits are counted](#how-document-credits-are-counted).
   </Accordion>
 
   <Accordion title="I can't publish to Xero">
