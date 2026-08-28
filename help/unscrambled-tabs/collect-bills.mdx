@@ -1,0 +1,125 @@
+---
+title: "Collect every bill on a page"
+description: "A supplier's billing page lists a year of invoices. One approval and the eggz Chrome extension fetches them, skipping the ones you already have"
+icon: "layer-group"
+keywords: ["collect", "bulk capture", "billing portal", "invoices", "supplier portal", "Stripe"]
+---
+
+## A year of invoices, one approval
+
+You have opened your supplier's billing page to find one invoice, and there are fifty-four of them sitting there. Downloading them one at a time is an afternoon. Downloading the eleven you actually need is an afternoon of squinting at dates.
+
+The extension reads the page, counts what is on it, and offers to fetch the lot. You approve once. This page shows you the offer, the three ways to narrow it, and what the run tells you afterwards.
+
+<Note>
+This needs you to be [signed in to eggz](/help/unscrambled-tabs/eggz-account). It is the [single-page capture](/help/unscrambled-tabs/capture-bills) grown up: same credits, same pipeline, many documents instead of one.
+</Note>
+
+## When you get the offer
+
+Open a page that lists documents, wait a moment, and a card appears in the chat:
+
+> **54 invoices and receipts on this page**
+
+The count is what the extension can actually reach, not what it can see. It works on supplier billing portals generally, not only the ones anyone wrote a recipe for, and it keeps looking for a short while after the page loads because most billing pages fill themselves in after the first paint.
+
+Three things worth knowing about the offer:
+
+- **Three documents is the floor.** Below that there is no card, because the [one-click banner](/help/unscrambled-tabs/capture-bills) already covers it.
+- **You are asked once per page.** Deny it and it will not ask again until you leave that page. Switching between Workspaces, Search and the chat does not lose a card that is waiting, and neither does closing and reopening the panel.
+- **It never collects more than the number you approved.** If the page loads more rows while the card is waiting, the card updates to the new number first.
+
+### What is actually new
+
+A second line often appears under the count:
+
+> **3 new, 51 you already have**
+
+eggz checks the page against the documents it already holds from that same website before you decide. A document it already holds is free to fetch again, so the honest answer to "should I just take all of them" is usually yes.
+
+If everything on the page is already in eggz, the line says so: **Nothing new here - you already have all 54**.
+
+## Three ways to narrow it
+
+You never have to. **Approve** takes everything the card names. But when you want less than everything, the card has three rungs, and you only climb as far as you need.
+
+### Invoices only, receipts only
+
+Two chips sit on the card. Tap **Invoices only** or **Receipts only** and the card tells you what that means for this page:
+
+> **12 of the 54 are invoices**
+
+Tap the chip again to clear it. The choice is applied when you approve, on your own computer, and the assistant is never told which one you picked.
+
+### Pick documents
+
+Tap **Pick documents** and a list opens **empty**, with **Select all** at the top. Starting from nothing is deliberate: taking three of fifty-four should cost three taps, not fifty-one.
+
+The card keeps count as you go:
+
+- **Nothing picked yet - Approve gets all 54**
+- **3 of the 54 picked**
+- **All 54 picked**
+
+Anything eggz already holds is greyed out and labelled **Already in eggz**. It cannot be ticked, **Select all** leaves it out, and it is not a document you would want to spend a credit on anyway.
+
+<Tip>
+Picking nothing and pressing Approve is not a mistake, and it does not do nothing. It collects everything, exactly as the line above the button says.
+</Tip>
+
+### Tick the rows on the page itself
+
+On a Stripe billing portal, the picker also draws checkboxes **against the real rows**, next to the dates and amounts you are already reading. Point at the invoices you mean instead of matching filenames in a list.
+
+- Click one, then **Shift-click** another, and everything between them is selected. That is how you take "everything since June" without anybody having to read a date.
+- Rows already in eggz draw a disabled box that says **Already in eggz**.
+- The boxes and the list are the same selection. Tick a row on the page and the card's count moves.
+
+Two honest limits: the on-page boxes are Stripe portals for now, and they need an `https:` page. Everywhere else the card's own list is the picker, and it does the same job.
+
+## While it runs
+
+Approve and a carton fills up in the chat, one egg per document, three at a time.
+
+- **It is not holding your browser hostage.** Close the side panel, switch tabs, open another window. The run lives in the extension itself, so it carries on and the carton is still there when you come back.
+- **Stop** halts it between documents. Nothing half-uploaded, nothing charged for what did not run.
+
+## When it finishes
+
+The card tells you what happened, in that order:
+
+> **All 54 invoices and receipts uploaded**
+
+or **Stopped - 12 of 54 invoices and receipts uploaded**, or **31 of 54**.
+
+- **Every document that uploaded is named and linked**, so you can click straight through to the receipt in eggz.
+- **Anything that did not upload is grouped by reason with a count**, such as *188 - The download failed*, rather than one line per document.
+- **Where a site refused to hand a file over**, the card says what to do instead: download those with the site's own button, and turn on **File bills you download** in Settings so eggz picks each one up as it lands.
+- **The card restates what you approved**, so the record is still there when you reopen the panel tomorrow.
+
+## What it costs
+
+- **One document, one credit**, however many pages it has. See [How document credits are counted](/help/guides/uploading-documents#how-document-credits-are-counted).
+- **A document eggz already holds is free** when a collect fetches it again from the same website. This is the one place in eggz where that is true, and it is why running the same billing page a second time next month costs you only the new invoices.
+- **Nothing is spent on a document that did not upload.**
+
+If your credits run out part way through, the card says so once, tells you nothing was spent on the rest, and links straight to **Billing**.
+
+## What it will not do
+
+Keeping it honest:
+
+- It does not read a page to make the offer. Detection happens on your computer, and nothing leaves your browser until you approve.
+- The assistant is told a count and nothing more. Which documents you ticked never reaches it.
+- eggz's own pages are never a source, so your eggz account cannot collect from itself.
+- Fewer than three documents gets you the [one-click banner](/help/unscrambled-tabs/capture-bills) instead.
+- On an `http:` page the on-page boxes are not drawn at all.
+
+<CardGroup cols={2}>
+  <Card title="One bill at a time" icon="receipt" href="/help/unscrambled-tabs/capture-bills">
+    The banner that catches a single invoice, and what gets sent
+  </Card>
+  <Card title="How credits are counted" icon="coins" href="/help/guides/uploading-documents#how-document-credits-are-counted">
+    One document, one credit, and the one case that is free
+  </Card>
+</CardGroup>

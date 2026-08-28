@@ -12,6 +12,34 @@ For product help, see [Getting started](/help/guides/onboarding) or [email suppo
 
 ---
 
+<Update label="2026-08-28--version-1-6-0" description="Chrome Extension: version 1.6.0 — pick exactly which bills to collect, tick them on the page itself, and narrow a run to invoices or receipts" tags={["Chrome Extension", "Help Docs"]}>
+
+**28 August 2026** · **Chrome Extension** · **Help Docs**
+
+Version 1.6.0 has been submitted to the Chrome Web Store. Google reviews every update, so it takes a week or two to appear. Chrome will update you on its own once it does.
+
+**You can now take some of the bills on a page instead of all of them.** A supplier's billing portal listing fifty-four invoices used to be one button: everything, or nothing. There are now three rungs on that ladder, and you only climb as far as you need.
+
+- **Invoices only** and **Receipts only** are back, as chips on the approval card. Tap one and the card tells you what it means for this page, as *12 of the 54 are invoices*. The choice is applied on your own computer when you approve, and the assistant is never told which one you picked.
+- **Pick documents** opens a list that starts **empty**, with **Select all** at the top. Taking three of fifty-four should cost three taps, not fifty-one. The card keeps count as you go: *Nothing picked yet - Approve gets all 54*, then *3 of the 54 picked*.
+- **Anything eggz already holds is greyed out and says "Already in eggz"** in that list. It cannot be ticked, and **Select all** leaves it out, because fetching it again would be free anyway.
+
+**On a Stripe billing portal, the picker also draws checkboxes on the page itself**, against the real rows, next to the dates and amounts you are already reading. Click one row, **Shift-click** another, and everything between them is selected — which is how you take "everything since June" without anybody having to read a date. The boxes and the card's list are one selection, so ticking a row moves the count on the card. Everywhere else the card's own list is the picker and does the same job.
+
+**The approval card no longer names a price.** It reads *54 invoices and receipts on this page*, and where it can it adds what is actually new: *3 new, 51 you already have*. Cost is stated once, after the run, where it is true.
+
+**Smaller things worth knowing:**
+
+- **The toolbar button is an on/off switch, not a door switcher.** Whichever door is open, the button closes it. Nothing open, and it opens whichever one **Open as** names. On a page that cannot host a card it opens the panel rather than doing nothing. A keyboard shortcut now goes to the door that is already open instead of raising a second one. See [Two ways to open it](/help/unscrambled-tabs/dashboard-and-side-panel#the-toolbar-button).
+- **The bill banner stays until you close it.** It used to hide itself after a few seconds, which meant it could vanish off the screen of somebody who was reading the very page it was about. The **✕** is the only thing that closes it now.
+- **A waiting approval card survives more.** Switching between Workspaces, Search and the chat no longer loses it, and a finished collect now stays in the chat it belongs to instead of turning up in a new one.
+- **Enter sends the message in the side-panel composer**, and a send that is refused says why.
+- **A run that is stopped, or one that runs out of credits part way, reports honestly**: what uploaded, what did not and why, and that nothing was spent on the rest.
+
+**New help page:** [Collect every bill on a page](/help/unscrambled-tabs/collect-bills) covers the offer, the three ways to narrow it, what a run costs, and what it will not do.
+
+</Update>
+
 <Update label="2026-08-23--collect-says-what-it-costs" description="Help Docs and Web App: one document credit per upload; Chrome Extension: collecting bills says what it costs, remembers your answer, and reports at scale" tags={["Help Docs", "Web App", "Chrome Extension"]}>
 
 **23 August 2026** · **Help Docs** · **Web App** · **Chrome Extension**
