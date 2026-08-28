@@ -84,25 +84,50 @@
         "tab": "Chrome Extension",
         "groups": [
           {
-            "group": "eggz Tab Manager",
+            "group": "Getting Started",
             "pages": [
               "help/unscrambled-tabs/index",
               "help/unscrambled-tabs/getting-started",
               "help/unscrambled-tabs/install",
-              "help/unscrambled-tabs/dashboard-and-side-panel",
+              "help/unscrambled-tabs/dashboard-and-side-panel"
+            ]
+          },
+          {
+            "group": "Workspaces & Tabs",
+            "pages": [
               "help/unscrambled-tabs/workspaces",
               "help/unscrambled-tabs/moving-tabs",
               "help/unscrambled-tabs/manage-tabs",
-              "help/unscrambled-tabs/open-tabs",
-              "help/unscrambled-tabs/ai-and-search",
-              "help/unscrambled-tabs/keyboard-shortcuts",
+              "help/unscrambled-tabs/open-tabs"
+            ]
+          },
+          {
+            "group": "Bills & Documents",
+            "pages": [
               "help/unscrambled-tabs/eggz-account",
               "help/unscrambled-tabs/capture-bills",
-            "help/unscrambled-tabs/collect-bills",
+              "help/unscrambled-tabs/collect-bills"
+            ]
+          },
+          {
+            "group": "AI & Search",
+            "pages": [
+              "help/unscrambled-tabs/ai-and-search",
+              "help/unscrambled-tabs/keyboard-shortcuts"
+            ]
+          },
+          {
+            "group": "Memory & Sessions",
+            "pages": [
               "help/unscrambled-tabs/session-time-travel",
-              "help/unscrambled-tabs/performance-and-ram",
-              "help/unscrambled-tabs/backup-import",
+              "help/unscrambled-tabs/performance-and-ram"
+            ]
+          },
+          {
+            "group": "Settings & Support",
+            "pages": [
               "help/unscrambled-tabs/settings-privacy",
+              "help/unscrambled-tabs/backup-import",
               "help/unscrambled-tabs/troubleshooting"
             ]
           }
