@@ -27,6 +27,10 @@ Top to bottom.
 
 Whether you are connected to your eggz account, with **Sign in** and **Sign out**. One login is shared with the web app. The full story is on [Connect your eggz account](/help/unscrambled-tabs/eggz-account).
 
+**Show the approvals inbox** sits here too, and it is **off**. While it is off the extension never asks eggz whether anything is waiting, so there is no tray icon and no background checking at all. Turn it on and the inbox appears in the header of the card and the side panel, with a badge counting the decisions your organisation's automations are holding for a person. See [The approvals inbox](/help/unscrambled-tabs/ai-and-search#the-approvals-inbox).
+
+**File bills you download** is a row here with a screen of its own, and it is **off**. While it is off nothing is watched at all: the extension registers no download listener and reads nothing. Turn it on and it watches downloads **from pages where eggz has found bills**, and files each one as it lands. Nothing else is watched. Each one files a document and uses one document credit, the same as a bill you upload by hand, and the screen keeps a list of what it has filed. It is the answer when a supplier's site will not hand a file to the extension but will hand it to you: [collect](/help/unscrambled-tabs/collect-bills) says so, and this catches them as you click the site's own download button.
+
 ### Open as
 
 What the toolbar button opens: **Floating card over the page**, which is the default, or **Docked side panel**. The change applies to your very next click. See [Two ways to open it](/help/unscrambled-tabs/dashboard-and-side-panel).
@@ -38,6 +42,8 @@ What the extension does as you open and close tabs.
 **Auto-save tabs**, on by default, means the workspace your window is using quietly keeps up with what you open and close, plus changes to tab groups and which tab you are on, so switching away never loses anything. Turn it off and workspaces only change when you act on them directly.
 
 **Tab deduplication**, also on by default, means that when you open a page you already have open, a small ["Already open" bar](/help/unscrambled-tabs/manage-tabs#already-open-the-duplicate-catcher) offers to switch you to the existing tab.
+
+**Keep the eggz tab pinned**, on by default, puts an eggz tab at the front of the tab strip in every ordinary window, so your workspaces are always one click away. Close it and it stays closed in that window for the rest of the session rather than springing back at you, and it returns next time you start Chrome. Turn the setting off and it is not created at all.
 
 ### Open Tabs view
 
@@ -70,7 +76,7 @@ The extension name, the version you are running, and where the AI comes from. Us
 
 ### Danger Zone
 
-**Wipe all data** permanently deletes all workspaces, folders, resources and settings from this browser, and disconnects your eggz account here. It asks you to confirm, and it means it.
+**Wipe all data** permanently deletes all workspaces, folders, resources, session snapshots and settings from this browser, and disconnects your eggz account here. It asks you to confirm, and it means it. Snapshots go with everything else, which matters because they hold the name and address of every tab that was in them.
 
 <Warning>
 There is no undo for **Wipe all data**. If there is any chance you will want your setup back, [export an encrypted backup](/help/unscrambled-tabs/backup-import) first.

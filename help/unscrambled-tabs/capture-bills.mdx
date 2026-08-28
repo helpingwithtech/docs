@@ -1,12 +1,14 @@
 ---
 title: "Capture bills from any page"
-description: "Spot a bill or invoice on a website? Send it to eggz in one click, right from the side panel"
+description: "Spot a bill or invoice on a website? Send it to eggz in one click. A page listing dozens of them takes one approval"
 icon: "receipt"
 ---
 
 ## Catch bills in the wild
 
-Bills are sneaky. They hide in your email, on supplier websites, and inside PDFs you open and forget about. eggz Tab Manager helps you grab them the moment you see them, before they turn into an "I'll deal with it later" pile.
+Bills are sneaky. They hide in your email, on supplier websites, and inside PDFs you open and forget about. The eggz Chrome extension helps you grab them the moment you see them, before they turn into an "I'll deal with it later" pile.
+
+There are two shapes to this. **One bill on the page you are reading** is the banner below. **A page that lists dozens of them**, like a supplier's billing portal, is one approval and a single run: see [Collect every bill on a page](/help/unscrambled-tabs/collect-bills).
 
 <Note>
 This feature needs you to be [signed in to eggz](/help/unscrambled-tabs/eggz-account), since that's where your captured bills go.
@@ -21,7 +23,7 @@ When you land on a page that looks like an invoice or a bill — including PDFs 
     Visit a supplier's invoice page, or open a bill PDF in your browser.
   </Step>
   <Step title="Spot the banner">
-    A banner pops up offering to **capture** the page. It's polite — if you ignore it, it tidies itself away after a few seconds.
+    A banner pops up offering to **capture** the page. It stays until you close it with the **✕**. It will not time out and vanish while you are still reading the very page it is about.
   </Step>
   <Step title="Send it to eggz">
     Click to capture. The extension grabs the **original invoice** — the actual PDF, filename and all pages intact — and sends it straight into your eggz organisation.
@@ -31,7 +33,7 @@ When you land on a page that looks like an invoice or a bill — including PDFs 
 The capture uses the **same upload pipeline and credits** as the dashboard, so your bill lands in [Expenses](/help/guides/expenses) and starts being read automatically — supplier, amounts, tax and all. See [Uploading documents](/help/guides/uploading-documents) for what happens after.
 
 <Tip>
-Switched tabs and the banner vanished? No drama. It clears itself when you move to a different tab so it never follows you around. Just go back to the bill page and it'll offer again.
+Switched tabs and the banner vanished? No drama. It belongs to the tab it found the bill on, so it never follows you around. Go back to the bill page and it will offer again.
 </Tip>
 
 ## The gentle "capture any bills?" nudge
@@ -50,14 +52,20 @@ Keeping it honest:
 - Your everyday browsing is **not** uploaded. Nothing leaves your browser until you choose to capture.
 
 <Warning>
-The bill-detector is smart, but not psychic. It may occasionally wave at a page that isn't really a bill — just ignore the banner and it'll disappear. And when a web page is captured as a picture (rather than an original PDF), glance over the screen first so nothing private tags along.
+The bill-detector is smart, but not psychic. It may occasionally wave at a page that isn't really a bill — close it with the **✕** and it will not raise that page again. And when a web page is captured as a picture (rather than an original PDF), glance over the screen first so nothing private tags along.
 </Warning>
 
 ## What a capture costs
 
 - One capture is one document and uses **one document credit**, however many pages the PDF has. Capturing the same bill twice processes it twice and uses two credits.
-- The one case eggz does not charge again is when the [AI assistant](/help/unscrambled-tabs/ai-and-search) collects the invoices or receipts listed on a page for you and eggz already holds that document from the same website. See [How document credits are counted](/help/guides/uploading-documents#how-document-credits-are-counted).
+- The one case eggz does not charge again is when a [collect](/help/unscrambled-tabs/collect-bills) fetches the invoices or receipts listed on a page for you and eggz already holds that document from the same website. See [How document credits are counted](/help/guides/uploading-documents#how-document-credits-are-counted).
 
 ## If your credits run out
 
 Bills are captured with the same **document credits** as the rest of eggz. If your organisation runs out, the capture card shows an upgrade prompt with a link to **Billing**. Upgrade and you're back in business.
+
+## A whole page of bills at once
+
+A supplier's billing portal listing a year of invoices does not need a hundred clicks. When the extension finds three or more documents on one page it offers to fetch them all, tells you how many are new before you decide, and lets you narrow the run to invoices only, receipts only, or a few you tick by hand.
+
+See [Collect every bill on a page](/help/unscrambled-tabs/collect-bills).
