@@ -9,7 +9,7 @@
   },
   "scripts": {
     "types": "wrangler types --env=\"\"",
-    "test": "tsx --test src/embed-framing.test.ts src/edge-cache.test.ts",
+    "test": "tsx --test src/embed-framing.test.ts src/edge-cache.test.ts src/help-page-url.test.ts",
     "validate": "pnpm test && wrangler deploy --env=\"\" --dry-run && wrangler deploy --env redirect --dry-run",
     "dev:proxy": "wrangler dev --env=\"\"",
     "dev:redirect": "wrangler dev --env redirect",

@@ -1,11 +1,38 @@
 /**
- * Which proxied requests and responses may be kept in the Cloudflare edge cache
- * (`caches.default`), which the Worker keys on the public eggz.ai URL alone.
+ * What the Worker may keep in the Cloudflare edge cache (`caches.default`), and
+ * under which key.
  *
- * A URL-only key is only safe while every entry under it is (a) the same bytes
- * every visitor should get and (b) reachable by `scripts/purge-help-cache.mjs`,
- * which purges exactly the sitemap URLs. The two rules below hold that line.
+ * The cache is only as safe as the purge script that empties it. That script
+ * (`scripts/purge-help-cache.mjs`) evicts help page URLs by name, so anything
+ * cached under a key it cannot name would sit there stale for the full 24-hour
+ * TTL. Everything below exists to keep those two sets identical.
  */
+
+const PUBLIC_ORIGIN = "https://eggz.ai";
+
+/** Content-hashed Next.js assets: the URL changes whenever the bytes do. */
+const STATIC_ASSET_PREFIX = "/mintlify-assets/_next/static/";
+
+/**
+ * How a proxied path may be cached.
+ *
+ * - `document` — a Help Centre page, sitemap or llms file. Cacheable, and the
+ *   purge script knows its URL.
+ * - `static-asset` — a content-hashed asset. Cacheable and never stale, so it
+ *   needs no purge entry.
+ * - `never` — Mintlify service routes (`/_mintlify/*`), generated agent skills
+ *   (`/skill.md`, `/.well-known/skills/*`) and domain verification
+ *   (`/.well-known/vercel/*`). Mintlify's own guidance is to cache none of
+ *   these, and none appear in the purge inventory, so a stored copy could
+ *   outlive a docs merge or a domain change by a day.
+ */
+export type CacheClass = "document" | "static-asset" | "never";
+
+export function classifyCachePath(pathname: string): CacheClass {
+  if (pathname.startsWith(STATIC_ASSET_PREFIX)) return "static-asset";
+  if (pathname === "/help" || pathname.startsWith("/help/")) return "document";
+  return "never";
+}
 
 /**
  * Headers Next.js sends on a client-router prefetch. Mintlify is a Next.js app,
@@ -22,23 +49,37 @@ const PREFETCH_HEADERS: readonly string[] = [
   "next-router-segment-prefetch",
 ];
 
-/**
- * @param isStaticAsset whether the path is a content-hashed
- * `/mintlify-assets/_next/static/` asset, for which staleness is impossible and
- * a `?dpl=…` build id in the URL is therefore safe to cache under.
- */
 export function isCacheableRequest(
   request: Pick<Request, "method" | "headers">,
-  url: Pick<URL, "search">,
-  isStaticAsset: boolean,
+  cacheClass: CacheClass,
 ): boolean {
+  if (cacheClass === "never") return false;
   if (request.method !== "GET") return false;
-  if (PREFETCH_HEADERS.some((h) => request.headers.has(h))) return false;
-  // A `?utm_source=…` variant gets its own cache entry that the purge script —
-  // which only knows the sitemap URLs — can never evict, so it would survive
-  // every docs merge and serve stale content for the full 24 hours.
-  if (url.search && !isStaticAsset) return false;
-  return true;
+  return !PREFETCH_HEADERS.some((h) => request.headers.has(h));
+}
+
+/**
+ * The URL a response is stored under.
+ *
+ * Documents drop the query string so that one arrival with `?utm_source=…` or
+ * `?gclid=…` shares the entry the purge script evicts by name — otherwise every
+ * campaign link would build its own unpurgeable copy, and first-time visitors,
+ * who are the likeliest to arrive with tracking parameters, would be the only
+ * ones never served from cache. Mintlify renders these pages from a
+ * `[[...slug]]` route that ignores the query: `/help/index` and
+ * `/help/index?utm_source=newsletter&gclid=abc123` were verified byte-identical.
+ *
+ * Static assets keep their query, because the `?dpl=…` build id is what makes
+ * one immutable asset distinct from the next.
+ */
+export function edgeCacheKeyUrl(
+  url: Pick<URL, "pathname" | "search">,
+  cacheClass: CacheClass,
+): string {
+  if (cacheClass === "static-asset") {
+    return `${PUBLIC_ORIGIN}${url.pathname}${url.search}`;
+  }
+  return `${PUBLIC_ORIGIN}${url.pathname}`;
 }
 
 /**

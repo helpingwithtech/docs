@@ -14,11 +14,43 @@ on:
       - "docs.json"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   purge:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Deep enough to diff this push against the commit it landed on.
+          fetch-depth: 0
+
+      # A deleted or renamed page vanishes from the rebuilt sitemap while its
+      # cached copy stays live, so the old URL keeps serving the old page.
+      # Read those paths from the push's own diff and purge them by name.
+      # --no-renames reports a rename as a delete plus an add, which is what we
+      # want: the delete side carries the OLD url, the one still in the cache.
+      - name: List help pages this push removed
+        id: removed
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          pages=""
+          # Absent on workflow_dispatch, and all-zeros when the branch is new
+          # or was force-pushed — in both cases there is no diff to read.
+          if [ -n "$BEFORE" ] && [ "$BEFORE" != "0000000000000000000000000000000000000000" ] \
+             && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            pages=$(git diff --no-renames --diff-filter=D --name-only "$BEFORE" "$AFTER" -- 'help/**/*.mdx' 'help/*.mdx')
+          else
+            echo "No usable base commit — purging the live sitemap only."
+          fi
+          {
+            echo "pages<<EOF"
+            echo "$pages"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Wait for the Mintlify rebuild to publish
         run: sleep 300
@@ -26,4 +58,5 @@ jobs:
       - name: Purge all help pages from the Cloudflare cache
         env:
           CLOUDFLARE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+          REMOVED_HELP_PAGES: ${{ steps.removed.outputs.pages }}
         run: node cloudflare/scripts/purge-help-cache.mjs

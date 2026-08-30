@@ -18,7 +18,12 @@
  * `mintlify-assets/_next/static` (long Cache-Control on that prefix only).
  */
 
-import { isCacheableRequest, isCacheableResponse } from "./edge-cache";
+import {
+  classifyCachePath,
+  edgeCacheKeyUrl,
+  isCacheableRequest,
+  isCacheableResponse,
+} from "./edge-cache";
 import { applyInAppEmbedHeaders } from "./embed-framing";
 import { ROBOTS_TXT } from "./robots-content";
 
@@ -138,10 +143,6 @@ function shouldProxy(pathname: string): boolean {
   );
 }
 
-function isStaticAsset(pathname: string): boolean {
-  return pathname.startsWith("/mintlify-assets/_next/static/");
-}
-
 function isHtml(contentType: string | null): boolean {
   return !!contentType && contentType.toLowerCase().startsWith("text/html");
 }
@@ -220,14 +221,13 @@ export default {
     // Edge cache, keyed on the public eggz.ai URL (not the Mintlify origin URL)
     // so the zone purge API can evict entries. Purged by
     // `scripts/purge-help-cache.mjs` after every docs merge and Worker deploy.
-    // What may share a URL-only key, and why, lives in `src/edge-cache.ts`.
-    const cacheable = isCacheableRequest(
-      request,
-      url,
-      isStaticAsset(url.pathname),
-    );
+    // What may be cached, under which key, and why: `src/edge-cache.ts`.
+    const cacheClass = classifyCachePath(url.pathname);
+    const cacheable = isCacheableRequest(request, cacheClass);
     const cache = caches.default;
-    const cacheKey = new Request(url.toString(), { method: "GET" });
+    const cacheKey = new Request(edgeCacheKeyUrl(url, cacheClass), {
+      method: "GET",
+    });
     if (cacheable) {
       const hit = await cache.match(cacheKey);
       if (hit) {
@@ -283,14 +283,18 @@ export default {
       if (nextLoc) outHeaders.set("Location", nextLoc);
     }
 
-    if (isStaticAsset(url.pathname)) {
+    if (cacheClass === "static-asset") {
       outHeaders.set("Cache-Control", "public, max-age=86400, immutable");
-    } else {
+    } else if (cacheClass === "document") {
       // Browsers revalidate after 5 minutes; the edge holds 24 hours
       // (s-maxage governs `caches.default`) and is purged on every docs merge.
       outHeaders.set("Cache-Control", "public, max-age=300, s-maxage=86400");
+    } else {
+      // Mintlify service routes, generated agent skills and domain
+      // verification. No purge entry covers these, so nothing may hold them.
+      outHeaders.set("Cache-Control", "no-cache, no-store, must-revalidate");
     }
-    outHeaders.set("x-eggz-help-cache", "MISS");
+    outHeaders.set("x-eggz-help-cache", cacheable ? "MISS" : "BYPASS");
 
     // In-app Help Centre (app.eggz.ai iframe): Mintlify denies all embeds by default.
     applyInAppEmbedHeaders(outHeaders);

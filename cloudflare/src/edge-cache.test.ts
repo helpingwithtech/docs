@@ -1,26 +1,56 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { isCacheableRequest, isCacheableResponse } from "./edge-cache.ts";
+import {
+  classifyCachePath,
+  edgeCacheKeyUrl,
+  isCacheableRequest,
+  isCacheableResponse,
+} from "./edge-cache.ts";
 
 function req(method: string, headers: Record<string, string> = {}) {
   return { method, headers: new Headers(headers) };
 }
 
-test("a plain page GET is cacheable", () => {
+test("help pages and their sitemap/llms files are cacheable documents", () => {
+  for (const path of [
+    "/help",
+    "/help/index",
+    "/help/guides/dashboard",
+    "/help/sitemap.xml",
+    "/help/llms-full.txt",
+  ]) {
+    assert.equal(classifyCachePath(path), "document", path);
+  }
+});
+
+test("hashed Next.js assets are their own class", () => {
   assert.equal(
-    isCacheableRequest(req("GET"), new URL("https://eggz.ai/help/index"), false),
-    true,
+    classifyCachePath("/mintlify-assets/_next/static/chunks/a.js"),
+    "static-asset",
   );
+});
+
+test("routes with no purge entry are never cached", () => {
+  // Mintlify designates these no-cache, and the purge script cannot name them,
+  // so a stored copy would outlive a docs merge or a domain change by a day.
+  for (const path of [
+    "/skill.md",
+    "/.well-known/skills/index.json",
+    "/.well-known/vercel/domain-verification",
+    "/_mintlify/api/search",
+  ]) {
+    assert.equal(classifyCachePath(path), "never", path);
+  }
+});
+
+test("a plain page GET is cacheable", () => {
+  assert.equal(isCacheableRequest(req("GET"), "document"), true);
 });
 
 test("non-GET methods are never cached", () => {
   for (const method of ["POST", "HEAD", "PUT"]) {
-    assert.equal(
-      isCacheableRequest(req(method), new URL("https://eggz.ai/help"), false),
-      false,
-      `${method} must not be cached`,
-    );
+    assert.equal(isCacheableRequest(req(method), "document"), false, method);
   }
 });
 
@@ -33,42 +63,45 @@ test("Next.js prefetches never share the page's cache entry", () => {
     "Next-Router-Segment-Prefetch",
   ]) {
     assert.equal(
-      isCacheableRequest(
-        req("GET", { [header]: "1" }),
-        new URL("https://eggz.ai/help"),
-        false,
-      ),
+      isCacheableRequest(req("GET", { [header]: "1" }), "document"),
       false,
-      `${header} must bypass the cache`,
+      header,
     );
   }
 });
 
-test("query-string page variants are not cached — the purge script cannot evict them", () => {
-  assert.equal(
-    isCacheableRequest(
-      req("GET"),
-      new URL("https://eggz.ai/help/index?utm_source=newsletter"),
-      false,
-    ),
-    false,
-  );
+test("a never-cached route stays out even for a plain GET", () => {
+  assert.equal(isCacheableRequest(req("GET"), "never"), false);
 });
 
-test("hashed static assets stay cacheable despite their ?dpl= build id", () => {
+test("tracking parameters share the page's cache entry", () => {
+  // Verified against production: /help/index and
+  // /help/index?utm_source=newsletter&gclid=abc123 are byte-identical, so a
+  // campaign link is served from the same entry the purge script evicts.
+  const bare = edgeCacheKeyUrl(
+    new URL("https://eggz.ai/help/index"),
+    "document",
+  );
+  const tracked = edgeCacheKeyUrl(
+    new URL("https://eggz.ai/help/index?utm_source=newsletter&gclid=abc123"),
+    "document",
+  );
+  assert.equal(bare, "https://eggz.ai/help/index");
+  assert.equal(tracked, bare);
+});
+
+test("hashed assets keep their build id in the cache key", () => {
+  const url = new URL(
+    "https://eggz.ai/mintlify-assets/_next/static/chunks/a.js?dpl=dpl_1",
+  );
   assert.equal(
-    isCacheableRequest(
-      req("GET"),
-      new URL("https://eggz.ai/mintlify-assets/_next/static/chunks/a.js?dpl=dpl_1"),
-      true,
-    ),
-    true,
+    edgeCacheKeyUrl(url, "static-asset"),
+    "https://eggz.ai/mintlify-assets/_next/static/chunks/a.js?dpl=dpl_1",
   );
 });
 
 test("only 200s without Set-Cookie are stored", () => {
-  const ok = { status: 200, headers: new Headers() };
-  assert.equal(isCacheableResponse(ok), true);
+  assert.equal(isCacheableResponse({ status: 200, headers: new Headers() }), true);
   assert.equal(isCacheableResponse({ status: 404, headers: new Headers() }), false);
   assert.equal(isCacheableResponse({ status: 302, headers: new Headers() }), false);
   assert.equal(
