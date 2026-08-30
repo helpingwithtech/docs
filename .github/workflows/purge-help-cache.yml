@@ -1,0 +1,29 @@
+name: Purge help edge cache
+
+# Every merged docs change triggers a Mintlify rebuild. Cloudflare holds a
+# 24-hour saved copy of each help page, so after the rebuild we must throw
+# those copies away or visitors keep seeing the old page. The wait gives
+# Mintlify time to finish publishing before the purge; purging too early
+# would just re-save the old page.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "help/**"
+      - "docs.json"
+  workflow_dispatch:
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait for the Mintlify rebuild to publish
+        run: sleep 300
+
+      - name: Purge all help pages from the Cloudflare cache
+        env:
+          CLOUDFLARE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_PURGE_TOKEN }}
+        run: node cloudflare/scripts/purge-help-cache.mjs

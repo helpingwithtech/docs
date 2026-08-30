@@ -201,7 +201,11 @@ function serveCanonicalRobots(): Response {
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext,
+  ): Promise<Response> {
     const url = new URL(request.url);
 
     if (url.pathname === "/robots.txt" || url.pathname === "/help/robots.txt") {
@@ -211,6 +215,28 @@ export default {
     if (!shouldProxy(url.pathname)) {
       return new Response("Not Found", { status: 404 });
     }
+
+    // Edge cache, keyed on the public eggz.ai URL (not the Mintlify origin URL)
+    // so the zone purge API can evict entries. Purged by
+    // `scripts/purge-help-cache.mjs` after every docs merge and Worker deploy.
+    const cacheable = request.method === "GET";
+    const cache = caches.default;
+    const cacheKey = new Request(url.toString(), { method: "GET" });
+    if (cacheable) {
+      const hit = await cache.match(cacheKey);
+      if (hit) {
+        const out = new Response(hit.body, hit);
+        out.headers.set("x-eggz-help-cache", "HIT");
+        return out;
+      }
+    }
+
+    const storeIfCacheable = (res: Response): Response => {
+      if (cacheable && res.status === 200 && !res.headers.has("set-cookie")) {
+        ctx.waitUntil(cache.put(cacheKey, res.clone()));
+      }
+      return res;
+    };
 
     const origin = env.MINTLIFY_ORIGIN;
     const upPath = upstreamPathname(url.pathname);
@@ -254,8 +280,11 @@ export default {
     if (isStaticAsset(url.pathname)) {
       outHeaders.set("Cache-Control", "public, max-age=86400, immutable");
     } else {
-      outHeaders.set("Cache-Control", "no-cache, no-store, must-revalidate");
+      // Browsers revalidate after 5 minutes; the edge holds 24 hours
+      // (s-maxage governs `caches.default`) and is purged on every docs merge.
+      outHeaders.set("Cache-Control", "public, max-age=300, s-maxage=86400");
     }
+    outHeaders.set("x-eggz-help-cache", "MISS");
 
     // In-app Help Centre (app.eggz.ai iframe): Mintlify denies all embeds by default.
     applyInAppEmbedHeaders(outHeaders);
@@ -274,12 +303,14 @@ export default {
         .on("img[src]", new MintlifyUrlAttrRewriter("src", origin))
         .on("form[action]", new MintlifyUrlAttrRewriter("action", origin));
 
-      return rewriter.transform(
-        new Response(upstreamResponse.body, {
-          status: upstreamResponse.status,
-          statusText: upstreamResponse.statusText,
-          headers: outHeaders,
-        }),
+      return storeIfCacheable(
+        rewriter.transform(
+          new Response(upstreamResponse.body, {
+            status: upstreamResponse.status,
+            statusText: upstreamResponse.statusText,
+            headers: outHeaders,
+          }),
+        ),
       );
     }
 
@@ -291,17 +322,21 @@ export default {
     ) {
       const text = await upstreamResponse.text();
       const rewritten = rewritePlainTextMintlifyUrls(text, origin);
-      return new Response(rewritten, {
+      return storeIfCacheable(
+        new Response(rewritten, {
+          status: upstreamResponse.status,
+          statusText: upstreamResponse.statusText,
+          headers: outHeaders,
+        }),
+      );
+    }
+
+    return storeIfCacheable(
+      new Response(upstreamResponse.body, {
         status: upstreamResponse.status,
         statusText: upstreamResponse.statusText,
         headers: outHeaders,
-      });
-    }
-
-    return new Response(upstreamResponse.body, {
-      status: upstreamResponse.status,
-      statusText: upstreamResponse.statusText,
-      headers: outHeaders,
-    });
+      }),
+    );
   },
 };
