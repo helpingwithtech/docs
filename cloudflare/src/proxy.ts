@@ -18,6 +18,7 @@
  * `mintlify-assets/_next/static` (long Cache-Control on that prefix only).
  */
 
+import { isCacheableRequest, isCacheableResponse } from "./edge-cache";
 import { applyInAppEmbedHeaders } from "./embed-framing";
 import { ROBOTS_TXT } from "./robots-content";
 
@@ -219,7 +220,12 @@ export default {
     // Edge cache, keyed on the public eggz.ai URL (not the Mintlify origin URL)
     // so the zone purge API can evict entries. Purged by
     // `scripts/purge-help-cache.mjs` after every docs merge and Worker deploy.
-    const cacheable = request.method === "GET";
+    // What may share a URL-only key, and why, lives in `src/edge-cache.ts`.
+    const cacheable = isCacheableRequest(
+      request,
+      url,
+      isStaticAsset(url.pathname),
+    );
     const cache = caches.default;
     const cacheKey = new Request(url.toString(), { method: "GET" });
     if (cacheable) {
@@ -232,7 +238,7 @@ export default {
     }
 
     const storeIfCacheable = (res: Response): Response => {
-      if (cacheable && res.status === 200 && !res.headers.has("set-cookie")) {
+      if (cacheable && isCacheableResponse(res)) {
         ctx.waitUntil(cache.put(cacheKey, res.clone()));
       }
       return res;
