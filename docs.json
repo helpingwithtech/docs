@@ -52,7 +52,10 @@
           },
           {
             "group": "AI Assistants",
-            "pages": ["help/guides/ai-bill-capture"]
+            "pages": [
+              "help/guides/ai-bill-capture",
+              "help/guides/asking-eggheadz"
+            ]
           },
           {
             "group": "Sales",
